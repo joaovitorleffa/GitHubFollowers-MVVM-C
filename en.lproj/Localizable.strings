@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  GitHubFollowers
+
+  Created by joaovitor on 16/03/22.
+  
+*/
+"EnterUsernameView.title" = "Followers";
+"EnterUsernameView.placeholder" = "Enter a username";
+"EnterUsernameView.btnTitle" = "Get followers";
+
+"Error.username.title" = "Enter a username";
+"Error.username.message" = "Please enter a username. We need to know who to look for 😄";
+"Error.username.btnTitle" = "OK";

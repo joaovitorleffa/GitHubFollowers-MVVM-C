@@ -9,12 +9,29 @@ import Foundation
 
 protocol FollowerListViewModelProtocol: AnyObject {
     var username: String { get set }
+    var followers: Observable<[Follower]> { get set }
 }
 
 class FollowersListViewModel: FollowerListViewModelProtocol {
     var username: String
+    var followers: Observable<[Follower]> = Observable([])
+    var requester: RequesterProtocol
     
-    init(username: String) {
+    init(username: String, requester: RequesterProtocol = Requester()) {
         self.username = username
+        self.requester = requester
+        
+        fetchFollowers()
+    }
+    
+    func fetchFollowers() {
+        requester.request(from: URLProvider(endpoint: .followers(username: username, page: 1))) { (result: Result<[Follower], APIError>) in
+            switch result {
+            case .success(let success):
+                print(success)
+            case .failure(let failure):
+                print(failure)
+            }
+        }
     }
 }

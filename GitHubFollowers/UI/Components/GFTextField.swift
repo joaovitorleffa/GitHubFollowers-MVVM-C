@@ -27,6 +27,8 @@ class GFTextField: UITextField {
         backgroundColor = colors.textField()
         layer.borderColor = colors.stroke()?.cgColor
         borderStyle = .roundedRect
+        autocorrectionType = .no
+        autocapitalizationType = .none
     }
     
     func setup(placeholder: String, returnKeyType: UIReturnKeyType) {

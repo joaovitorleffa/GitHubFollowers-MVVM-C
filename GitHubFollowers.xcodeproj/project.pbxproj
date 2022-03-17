@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2BA1242027E383C7006B39CF /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1241F27E383C7006B39CF /* GFTextField.swift */; };
+		2BA1242327E39701006B39CF /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1242227E39701006B39CF /* Follower.swift */; };
+		2BA1242627E39860006B39CF /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1242527E39860006B39CF /* Requester.swift */; };
+		2BA1242827E3A1E9006B39CF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1242727E3A1E9006B39CF /* Observable.swift */; };
+		2BA1242B27E3AB2C006B39CF /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1242A27E3AB2C006B39CF /* URLProvider.swift */; };
+		2BA1242D27E3AC02006B39CF /* APISupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1242C27E3AC02006B39CF /* APISupport.swift */; };
 		2BB2310127E25960001A5FF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2310027E25960001A5FF4 /* AppDelegate.swift */; };
 		2BB2310A27E25962001A5FF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB2310927E25962001A5FF4 /* Assets.xcassets */; };
 		2BB2310D27E25962001A5FF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB2310B27E25962001A5FF4 /* LaunchScreen.storyboard */; };
@@ -17,7 +22,6 @@
 		2BB2313227E25A03001A5FF4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2313127E25A03001A5FF4 /* Coordinator.swift */; };
 		2BB2313427E25CEB001A5FF4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2313327E25CEB001A5FF4 /* MainTabBarController.swift */; };
 		2BB2313627E25E3D001A5FF4 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2313527E25E3D001A5FF4 /* SearchCoordinator.swift */; };
-		2BB2313927E25E8B001A5FF4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2313827E25E8B001A5FF4 /* SearchViewController.swift */; };
 		2BB2313B27E2609D001A5FF4 /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2313A27E2609D001A5FF4 /* FavoritesCoordinator.swift */; };
 		2BB2313D27E2613D001A5FF4 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2313C27E2613D001A5FF4 /* FavoritesViewController.swift */; };
 		2BB2314527E26367001A5FF4 /* EnterUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2314427E26367001A5FF4 /* EnterUsernameViewController.swift */; };
@@ -62,6 +66,11 @@
 		15597E33E6D5445BC6F75D2E /* Pods_GitHubFollowers_GitHubFollowersUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubFollowers_GitHubFollowersUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B34CC55BB3854E0D3C5C123 /* Pods-GitHubFollowers-GitHubFollowersUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubFollowers-GitHubFollowersUITests.release.xcconfig"; path = "Target Support Files/Pods-GitHubFollowers-GitHubFollowersUITests/Pods-GitHubFollowers-GitHubFollowersUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2BA1241F27E383C7006B39CF /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
+		2BA1242227E39701006B39CF /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		2BA1242527E39860006B39CF /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
+		2BA1242727E3A1E9006B39CF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		2BA1242A27E3AB2C006B39CF /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
+		2BA1242C27E3AC02006B39CF /* APISupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISupport.swift; sourceTree = "<group>"; };
 		2BB230FD27E25960001A5FF4 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB2310027E25960001A5FF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BB2310927E25962001A5FF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,7 +84,6 @@
 		2BB2313127E25A03001A5FF4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2BB2313327E25CEB001A5FF4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		2BB2313527E25E3D001A5FF4 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
-		2BB2313827E25E8B001A5FF4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2BB2313A27E2609D001A5FF4 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
 		2BB2313C27E2613D001A5FF4 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		2BB2314427E26367001A5FF4 /* EnterUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUsernameViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +140,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BA1242127E396EE006B39CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2BA1242227E39701006B39CF /* Follower.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2BA1242427E3982F006B39CF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2BA1242527E39860006B39CF /* Requester.swift */,
+				2BA1242A27E3AB2C006B39CF /* URLProvider.swift */,
+				2BA1242C27E3AC02006B39CF /* APISupport.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2BA1242927E3A2B1006B39CF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2BA1242727E3A1E9006B39CF /* Observable.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		2BB230F427E25960001A5FF4 = {
 			isa = PBXGroup;
 			children = (
@@ -158,13 +192,15 @@
 		2BB230FF27E25960001A5FF4 /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				2BB2310E27E25962001A5FF4 /* Info.plist */,
+				2BA1242927E3A2B1006B39CF /* Helpers */,
+				2BA1242427E3982F006B39CF /* Services */,
 				2BD1F9D127E36059004EE9BF /* UI */,
 				2BB2313027E259EB001A5FF4 /* Utils */,
 				2BB2310B27E25962001A5FF4 /* LaunchScreen.storyboard */,
 				2BB2310927E25962001A5FF4 /* Assets.xcassets */,
 				2BB2310027E25960001A5FF4 /* AppDelegate.swift */,
 				2BD1F9DF27E36AC5004EE9BF /* R.generated.swift */,
+				2BB2310E27E25962001A5FF4 /* Info.plist */,
 			);
 			path = GitHubFollowers;
 			sourceTree = "<group>";
@@ -209,7 +245,6 @@
 		2BB2313F27E262CD001A5FF4 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				2BB2313827E25E8B001A5FF4 /* SearchViewController.swift */,
 				2BB2313527E25E3D001A5FF4 /* SearchCoordinator.swift */,
 				2BB2314127E262FB001A5FF4 /* FollowersList */,
 				2BB2314027E262DD001A5FF4 /* EnterUsername */,
@@ -229,8 +264,9 @@
 		2BB2314127E262FB001A5FF4 /* FollowersList */ = {
 			isa = PBXGroup;
 			children = (
-				2BB2316127E28571001A5FF4 /* ViewModel */,
 				2BB2315E27E283AF001A5FF4 /* View */,
+				2BB2316127E28571001A5FF4 /* ViewModel */,
+				2BA1242127E396EE006B39CF /* Model */,
 			);
 			path = FollowersList;
 			sourceTree = "<group>";
@@ -300,8 +336,8 @@
 			isa = PBXGroup;
 			children = (
 				2BD1F9ED27E3734D004EE9BF /* GFButton.swift */,
-				2BD1F9E127E36E9D004EE9BF /* GFAlertVC */,
 				2BA1241F27E383C7006B39CF /* GFTextField.swift */,
+				2BD1F9E127E36E9D004EE9BF /* GFAlertVC */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -628,14 +664,17 @@
 				2BB2313227E25A03001A5FF4 /* Coordinator.swift in Sources */,
 				2BB2314A27E26583001A5FF4 /* ViewCode.swift in Sources */,
 				2BB2315827E27AEA001A5FF4 /* Alias.swift in Sources */,
+				2BA1242B27E3AB2C006B39CF /* URLProvider.swift in Sources */,
 				2BA1242027E383C7006B39CF /* GFTextField.swift in Sources */,
 				2BD1F9D727E3615B004EE9BF /* GFAlertVC.swift in Sources */,
 				2BB2313B27E2609D001A5FF4 /* FavoritesCoordinator.swift in Sources */,
 				2BD1F9E427E36EC2004EE9BF /* GFAlertView.swift in Sources */,
+				2BA1242D27E3AC02006B39CF /* APISupport.swift in Sources */,
+				2BA1242627E39860006B39CF /* Requester.swift in Sources */,
 				2BB2316327E28588001A5FF4 /* FollowersListViewModel.swift in Sources */,
 				2BB2313D27E2613D001A5FF4 /* FavoritesViewController.swift in Sources */,
+				2BA1242827E3A1E9006B39CF /* Observable.swift in Sources */,
 				2BB2316027E283BC001A5FF4 /* FollowersListView.swift in Sources */,
-				2BB2313927E25E8B001A5FF4 /* SearchViewController.swift in Sources */,
 				2BD1F9EA27E36F3F004EE9BF /* GFAlertVM.swift in Sources */,
 				2BB2314527E26367001A5FF4 /* EnterUsernameViewController.swift in Sources */,
 				2BD1F9E027E36AC5004EE9BF /* R.generated.swift in Sources */,
@@ -644,6 +683,7 @@
 				2BB2313427E25CEB001A5FF4 /* MainTabBarController.swift in Sources */,
 				2BB2314D27E26664001A5FF4 /* EnterUsernameView.swift in Sources */,
 				2BB2315A27E27C08001A5FF4 /* FollowersListViewController.swift in Sources */,
+				2BA1242327E39701006B39CF /* Follower.swift in Sources */,
 				2BB2310127E25960001A5FF4 /* AppDelegate.swift in Sources */,
 				2BD1F9E827E36F00004EE9BF /* Alert.swift in Sources */,
 				2BB2313627E25E3D001A5FF4 /* SearchCoordinator.swift in Sources */,

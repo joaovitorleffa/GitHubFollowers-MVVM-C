@@ -9,10 +9,11 @@ import UIKit
 import SnapKit
 
 class FollowersListView: UIView {
-    let lbl: UILabel = {
-        let lbl = UILabel()
-        lbl.textColor = .white
-        return lbl
+    let collectionView: UICollectionView = {
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collection.backgroundColor = colors.background()
+        collection.contentInset = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+        return collection
     }()
     
     override init(frame: CGRect) {
@@ -28,12 +29,12 @@ class FollowersListView: UIView {
 
 extension FollowersListView: ViewCode {
     func buildViewHierarchy() {
-        addSubview(lbl)
+       addSubview(collectionView)
     }
     
     func setupConstraints() {
-        lbl.snp.makeConstraints { make in
-            make.centerX.centerY.equalToSuperview()
+        collectionView.snp.makeConstraints { make in
+            make.leading.top.centerX.centerY.equalTo(safeAreaLayoutGuide)
         }
     }
 }

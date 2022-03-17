@@ -8,6 +8,7 @@ target 'GitHubFollowers' do
   # Pods for GitHubFollowers
   pod 'SnapKit', '~> 4.0'
   pod 'R.swift'
+  pod 'Nuke', '~> 9.0'
 
   target 'GitHubFollowersTests' do
     inherit! :search_paths

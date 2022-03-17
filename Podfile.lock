@@ -1,24 +1,28 @@
 PODS:
+  - Nuke (9.5.0)
   - R.swift (6.1.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
+  - Nuke (~> 9.0)
   - R.swift
   - SnapKit (~> 4.0)
 
 SPEC REPOS:
   trunk:
+    - Nuke
     - R.swift
     - R.swift.Library
     - SnapKit
 
 SPEC CHECKSUMS:
+  Nuke: 6f400a4ea957e09149ec335a3c6acdcc814d89e4
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 08c9c373d2c641c2ca4a1670abb6889731f50fae
+PODFILE CHECKSUM: b47a5d38ac99fecfd601d730d89a808ce43cbfa6
 
 COCOAPODS: 1.11.2

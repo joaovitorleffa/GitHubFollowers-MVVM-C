@@ -25,12 +25,12 @@ class FollowersListViewModel: FollowerListViewModelProtocol {
     }
     
     func fetchFollowers() {
-        requester.request(from: URLProvider(endpoint: .followers(username: username, page: 1))) { (result: Result<[Follower], APIError>) in
+        requester.request(from: URLProvider(endpoint: .followers(username: username, page: 1))) { [weak self] (result: Result<[Follower], APIError>) in
             switch result {
-            case .success(let success):
-                print(success)
-            case .failure(let failure):
-                print(failure)
+            case .success(let data):
+                self?.followers.value = data
+            case .failure(let error):
+                print(error)
             }
         }
     }

@@ -8,11 +8,15 @@
 import Foundation
 
 protocol FollowerListViewModelProtocol: AnyObject {
-    var coordinator: SearchCoordinatorDelegate? { get set }
     var username: String { get set }
+    var coordinator: SearchCoordinatorDelegate? { get set }
+    
     var isLoading: Observable<Bool> { get }
     var followers: Observable<[Follower]> { get set }
+    
+    func reloadData()
     func fetchFollowers()
+    func filter(by text: String)
 }
 
 class FollowersListViewModel: FollowerListViewModelProtocol {
@@ -25,6 +29,8 @@ class FollowersListViewModel: FollowerListViewModelProtocol {
     
     private var currentPage = 1
     private var loadedAll: Bool = false
+    private var allFollowers: [Follower] = []
+    private var filteredFollowers: [Follower] = []
     
     init(username: String, coordinator: SearchCoordinatorDelegate, requester: RequesterProtocol = Requester()) {
         self.username = username
@@ -46,15 +52,25 @@ class FollowersListViewModel: FollowerListViewModelProtocol {
                 if data.isEmpty {
                     self.loadedAll = true
                 } else {
-                    self.followers.value.append(contentsOf: data)
+                    self.allFollowers.append(contentsOf: data)
+                    self.followers.value = self.allFollowers
                     self.currentPage += 1
                 }
     
                 self.isLoading.value = false
-            case .failure(let _):
+            case .failure(let error):
                 self?.isLoading.value = false
+                print(error)
                 // TODO: handle error
             }
         }
+    }
+    
+    func filter(by text: String) {
+        followers.value = allFollowers.filter { $0.login.lowercased().contains(text.lowercased()) }
+    }
+    
+    func reloadData() {
+        followers.value = allFollowers
     }
 }

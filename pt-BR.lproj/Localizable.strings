@@ -5,6 +5,8 @@
   Created by joaovitor on 16/03/22.
   
 */
+
+"EnterUsernameView.bar.title" = "Pesquisar";
 "EnterUsernameView.title" = "Followers";
 "EnterUsernameView.placeholder" = "Informe um nome de usário";
 "EnterUsernameView.btnTitle" = "Buscar seguidores";

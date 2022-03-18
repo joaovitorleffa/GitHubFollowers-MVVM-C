@@ -9,32 +9,54 @@ import UIKit
 import SnapKit
 
 class FollowersListView: UIView {
-    let collectionView: UICollectionView = {
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let loadingView = GFLoadingView()
+    
+    lazy var collectionView: UICollectionView = {
+        let collection = UICollectionView(frame: bounds, collectionViewLayout: UICollectionViewFlowLayout())
         collection.backgroundColor = colors.background()
-        collection.contentInset = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+        collection.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         return collection
+    }()
+    
+    let searchController: UISearchController = {
+        let search = UISearchController()
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.barStyle = .black
+        return search
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
-        backgroundColor = colors.background()
+        configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    private func configure() {
+        loadingView.isHidden = true
+        backgroundColor = colors.background()
+    }
+    
+    func showLoadingView(when show: Bool) {
+        loadingView.isHidden = show
+    }
 }
 
 extension FollowersListView: ViewCode {
     func buildViewHierarchy() {
-       addSubview(collectionView)
+        addSubview(collectionView)
+        addSubview(loadingView)
     }
     
     func setupConstraints() {
         collectionView.snp.makeConstraints { make in
             make.leading.top.centerX.centerY.equalTo(safeAreaLayoutGuide)
+        }
+        loadingView.snp.makeConstraints { make in
+            make.leading.top.centerX.centerY.equalToSuperview()
         }
     }
 }

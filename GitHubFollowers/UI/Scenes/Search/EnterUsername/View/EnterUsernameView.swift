@@ -21,7 +21,7 @@ class EnterUsernameView: UIView {
     
     let title: UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .white
+        lbl.textColor = colors.title()
         lbl.text = strings.enterUsernameViewTitle()
         lbl.font = .boldSystemFont(ofSize: 24)
         return lbl

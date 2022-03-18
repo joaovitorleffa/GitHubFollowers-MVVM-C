@@ -12,6 +12,20 @@ class EnterUsernameViewController: BaseViewController<EnterUsernameView> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationController()
+        configure()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    func setupNavigationController() {
+        title = strings.enterUsernameViewBarTitle()
+    }
+    
+    func configure() {
         customView.textField.delegate = self
         customView.button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }

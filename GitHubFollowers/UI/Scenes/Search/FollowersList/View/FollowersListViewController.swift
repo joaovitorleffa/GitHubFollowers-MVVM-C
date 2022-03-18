@@ -39,7 +39,9 @@ class FollowersListViewController: BaseViewController<FollowersListView> {
     
     func setupBinds() {
         viewModel?.followers.bind(closure: { [weak self] followers in
-            self?.followerViewModels = followers.map { FollowerViewModel(follower: $0) }
+            self?.followerViewModels = followers.map { item in FollowerViewModel(follower: item) {
+                self?.viewModel?.coordinator?.goToProfile(by: item.login)
+            }}
             DispatchQueue.main.async {
                 self?.customView.collectionView.reloadData()
             }
@@ -76,6 +78,10 @@ extension FollowersListViewController: UICollectionViewDataSource {
         cell.setup(viewModel: viewModel)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        followerViewModels[indexPath.row].goToProfile?()
     }
 }
 

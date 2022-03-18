@@ -8,6 +8,7 @@
 import Foundation
 
 protocol FollowerListViewModelProtocol: AnyObject {
+    var coordinator: SearchCoordinatorDelegate? { get set }
     var username: String { get set }
     var isLoading: Observable<Bool> { get }
     var followers: Observable<[Follower]> { get set }
@@ -16,16 +17,19 @@ protocol FollowerListViewModelProtocol: AnyObject {
 
 class FollowersListViewModel: FollowerListViewModelProtocol {
     var username: String
+    var requester: RequesterProtocol
+    weak var coordinator: SearchCoordinatorDelegate?
+    
     var isLoading: Observable<Bool> = Observable(true)
     var followers: Observable<[Follower]> = Observable([])
-    var requester: RequesterProtocol
     
     private var currentPage = 1
     private var loadedAll: Bool = false
     
-    init(username: String, requester: RequesterProtocol = Requester()) {
+    init(username: String, coordinator: SearchCoordinatorDelegate, requester: RequesterProtocol = Requester()) {
         self.username = username
         self.requester = requester
+        self.coordinator = coordinator
         
         fetchFollowers()
     }

@@ -8,6 +8,11 @@
 import Foundation
 import UIKit
 
+protocol SearchCoordinatorDelegate: AnyObject {
+    func findFollowers(by text: String)
+    func goToProfile(by username: String)
+}
+
 class SearchCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
@@ -26,11 +31,13 @@ class SearchCoordinator: Coordinator {
         vc.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         navigationController.pushViewController(vc, animated: false)
     }
-    
+}
+
+extension SearchCoordinator: SearchCoordinatorDelegate {
     func findFollowers(by text: String) {
         if !text.isEmpty {
             let vc = FollowersListViewController()
-            vc.viewModel = FollowersListViewModel(username: text)
+            vc.viewModel = FollowersListViewModel(username: text, coordinator: self)
             navigationController.pushViewController(vc, animated: true)
             return
         }
@@ -43,5 +50,12 @@ class SearchCoordinator: Coordinator {
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         navigationController.present(vc, animated: true)
+    }
+    
+    func goToProfile(by username: String) {
+        let viewModel = ProfileViewModel(username: username)
+        let vc = ProfileViewController()
+        vc.viewModel = viewModel
+        navigationController.pushViewController(vc, animated: true)
     }
 }

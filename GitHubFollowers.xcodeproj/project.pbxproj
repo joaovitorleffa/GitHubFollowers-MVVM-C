@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2B1729C627E4B84B00DD130D /* GFLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1729C527E4B84B00DD130D /* GFLoadingView.swift */; };
+		2B1729C927E4C0B500DD130D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1729C827E4C0B500DD130D /* ProfileViewController.swift */; };
+		2B1729CB27E4C0DC00DD130D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1729CA27E4C0DC00DD130D /* ProfileViewModel.swift */; };
 		2BA1242027E383C7006B39CF /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1241F27E383C7006B39CF /* GFTextField.swift */; };
 		2BA1242327E39701006B39CF /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1242227E39701006B39CF /* Follower.swift */; };
 		2BA1242627E39860006B39CF /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1242527E39860006B39CF /* Requester.swift */; };
@@ -72,6 +74,8 @@
 		15597E33E6D5445BC6F75D2E /* Pods_GitHubFollowers_GitHubFollowersUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubFollowers_GitHubFollowersUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B34CC55BB3854E0D3C5C123 /* Pods-GitHubFollowers-GitHubFollowersUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubFollowers-GitHubFollowersUITests.release.xcconfig"; path = "Target Support Files/Pods-GitHubFollowers-GitHubFollowersUITests/Pods-GitHubFollowers-GitHubFollowersUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2B1729C527E4B84B00DD130D /* GFLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFLoadingView.swift; sourceTree = "<group>"; };
+		2B1729C827E4C0B500DD130D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2B1729CA27E4C0DC00DD130D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		2BA1241F27E383C7006B39CF /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		2BA1242227E39701006B39CF /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		2BA1242527E39860006B39CF /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
@@ -152,6 +156,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B1729C727E4C08200DD130D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2B1729C827E4C0B500DD130D /* ProfileViewController.swift */,
+				2B1729CA27E4C0DC00DD130D /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		2BA1242127E396EE006B39CF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				2BB2313127E25A03001A5FF4 /* Coordinator.swift */,
+				2B1729C727E4C08200DD130D /* Profile */,
 				2BB2314227E2630F001A5FF4 /* Favorites */,
 				2BB2313F27E262CD001A5FF4 /* Search */,
 			);
@@ -742,6 +756,7 @@
 				2BA1243527E3B241006B39CF /* FollowerCell.swift in Sources */,
 				2BB2314527E26367001A5FF4 /* EnterUsernameViewController.swift in Sources */,
 				2BD1F9E027E36AC5004EE9BF /* R.generated.swift in Sources */,
+				2B1729C927E4C0B500DD130D /* ProfileViewController.swift in Sources */,
 				2BB2314827E2653B001A5FF4 /* BaseViewController.swift in Sources */,
 				2BD1F9EE27E3734D004EE9BF /* GFButton.swift in Sources */,
 				2BB2313427E25CEB001A5FF4 /* MainTabBarController.swift in Sources */,
@@ -751,6 +766,7 @@
 				2BB2310127E25960001A5FF4 /* AppDelegate.swift in Sources */,
 				2BD1F9E827E36F00004EE9BF /* Alert.swift in Sources */,
 				2BB2313627E25E3D001A5FF4 /* SearchCoordinator.swift in Sources */,
+				2B1729CB27E4C0DC00DD130D /* ProfileViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

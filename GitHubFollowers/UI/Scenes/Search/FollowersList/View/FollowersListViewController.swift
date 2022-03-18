@@ -10,6 +10,7 @@ import UIKit
 class FollowersListViewController: BaseViewController<FollowersListView> {
     var viewModel: FollowerListViewModelProtocol?
     var followerViewModels: [FollowerViewModelProtocol] = []
+    var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +35,8 @@ class FollowersListViewController: BaseViewController<FollowersListView> {
     
     func setupCollectionView() {
         customView.collectionView.delegate = self
-        customView.collectionView.dataSource = self
         customView.collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.identifier)
+        configureDataSource()
     }
     
     func setupBinds() {
@@ -46,7 +47,7 @@ class FollowersListViewController: BaseViewController<FollowersListView> {
                 self.followerViewModels = followers.map { item in FollowerViewModel(follower: item) {
                     self.viewModel?.coordinator?.goToProfile(by: item.login)
                 }}
-                self.customView.collectionView.reloadData()
+                self.updateUI()
             }
         })
         
@@ -58,6 +59,28 @@ class FollowersListViewController: BaseViewController<FollowersListView> {
     }
 }
 
+// MARK: - CollectionView data source
+extension FollowersListViewController {
+    func configureDataSource() {
+        self.dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: customView.collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.identifier, for: indexPath) as! FollowerCell
+            cell.setup(viewModel: self.followerViewModels[indexPath.row])
+            return cell
+        })
+    }
+
+    func updateUI() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(viewModel?.followers.value ?? [], toSection: .main)
+        
+        DispatchQueue.main.async {
+            self.dataSource.apply(snapshot, animatingDifferences: true)
+        }
+    }
+}
+
+// MARK: - CollectionView delegate
 extension FollowersListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CellSize.getSize(for: Constants.cellsPerRow,
@@ -71,21 +94,7 @@ extension FollowersListViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension FollowersListViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        followerViewModels.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.identifier, for: indexPath) as? FollowerCell else {
-            fatalError("[cellForItemAt] create cell error")
-        }
-        let viewModel = followerViewModels[indexPath.row]
-        cell.setup(viewModel: viewModel)
-        return cell
-    }
-}
-
+// MARK: - ScrollView delegate
 extension FollowersListViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
@@ -99,6 +108,7 @@ extension FollowersListViewController: UIScrollViewDelegate {
     }
 }
 
+// MARK: - SearchBar
 extension FollowersListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
@@ -117,5 +127,11 @@ extension FollowersListViewController {
         static let cellsPerRow: CGFloat = 3
         static let cellSpacing: CGFloat = 10
         static let shouldRefresh: CGFloat = 100
+    }
+}
+
+extension FollowersListViewController {
+    enum Section {
+        case main
     }
 }

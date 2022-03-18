@@ -14,3 +14,5 @@
 "Error.username.title" = "Enter a username";
 "Error.username.message" = "Please enter a username. We need to know who to look for 😄";
 "Error.username.btnTitle" = "OK";
+
+"ErrorView.followers.title" = "This user doens't have any followers 😔";

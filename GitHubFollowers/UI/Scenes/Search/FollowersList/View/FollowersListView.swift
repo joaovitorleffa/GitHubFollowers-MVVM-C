@@ -10,6 +10,7 @@ import SnapKit
 
 class FollowersListView: UIView {
     let loadingView = GFLoadingView()
+    let errorView = GFErrorView(title: strings.errorViewFollowersTitle())
     
     lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: bounds, collectionViewLayout: UICollectionViewFlowLayout())
@@ -39,11 +40,16 @@ class FollowersListView: UIView {
     
     private func configure() {
         loadingView.isHidden = true
+        errorView.isHidden = true
         backgroundColor = colors.background()
     }
     
     func showLoadingView(when show: Bool) {
-        loadingView.isHidden = show
+        loadingView.isHidden = !show
+    }
+    
+    func showErrorView(when show: Bool) {
+        errorView.isHidden = !show
     }
 }
 
@@ -51,6 +57,7 @@ extension FollowersListView: ViewCode {
     func buildViewHierarchy() {
         addSubview(collectionView)
         addSubview(loadingView)
+        addSubview(errorView)
     }
     
     func setupConstraints() {
@@ -58,6 +65,9 @@ extension FollowersListView: ViewCode {
             make.leading.top.centerX.centerY.equalTo(safeAreaLayoutGuide)
         }
         loadingView.snp.makeConstraints { make in
+            make.leading.top.centerX.centerY.equalToSuperview()
+        }
+        errorView.snp.makeConstraints { make in
             make.leading.top.centerX.centerY.equalToSuperview()
         }
     }

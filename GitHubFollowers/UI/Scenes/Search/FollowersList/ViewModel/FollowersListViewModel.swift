@@ -11,6 +11,7 @@ protocol FollowerListViewModelProtocol: AnyObject {
     var username: String { get set }
     var coordinator: SearchCoordinatorDelegate? { get set }
     
+    var isError: Observable<Bool> { get }
     var isLoading: Observable<Bool> { get }
     var followers: Observable<[Follower]> { get set }
     
@@ -24,6 +25,7 @@ class FollowersListViewModel: FollowerListViewModelProtocol {
     var requester: RequesterProtocol
     weak var coordinator: SearchCoordinatorDelegate?
     
+    var isError: Observable<Bool> = Observable(false)
     var isLoading: Observable<Bool> = Observable(true)
     var followers: Observable<[Follower]> = Observable([])
     
@@ -60,8 +62,8 @@ class FollowersListViewModel: FollowerListViewModelProtocol {
                 self.isLoading.value = false
             case .failure(let error):
                 self?.isLoading.value = false
+                self?.isError.value = true
                 print(error)
-                // TODO: handle error
             }
         }
     }

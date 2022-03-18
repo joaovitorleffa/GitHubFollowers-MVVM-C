@@ -14,3 +14,5 @@
 "Error.username.title" = "Informe um nome de usuário";
 "Error.username.message" = "Por favor, informe um nome de usuário. Precisamos saber por quem procurar 😄";
 "Error.username.btnTitle" = "OK";
+
+"ErrorView.followers.title" = "Este usuário não tem nenhum seguidor 😔";

@@ -41,3 +41,26 @@ struct Follower: Codable, Hashable {
         case siteAdmin = "site_admin"
     }
 }
+
+extension Follower {
+    static func dummy() -> Follower {
+        Follower(login: "joaovitorleffa",
+                 id: 1,
+                 nodeID: "onmnju312",
+                 avatarURL: "https://avatars.githubusercontent.com/u/44384402?v=4",
+                 gravatarID: "",
+                 url: "https://api.github.com/users/joaovitorleffa",
+                 htmlURL: "https://github.com/joaovitorleffa",
+                 followersURL: "https://api.github.com/users/joaovitorleffa/followers",
+                 followingURL: "https://api.github.com/users/joaovitorleffa/following{/other_user}",
+                 gistsURL: "https://api.github.com/users/joaovitorleffa/gists{/gist_id}",
+                 starredURL: "https://api.github.com/users/joaovitorleffa/starred{/owner}{/repo}",
+                 subscriptionsURL: "https://api.github.com/users/joaovitorleffa/subscriptions",
+                 organizationsURL: "https://api.github.com/users/joaovitorleffa/orgs",
+                 reposURL: "https://api.github.com/users/joaovitorleffa/repos",
+                 eventsURL: "https://api.github.com/users/joaovitorleffa/events{/privacy}",
+                 receivedEventsURL: "https://api.github.com/users/joaovitorleffa/received_events",
+                 type: "User",
+                 siteAdmin: false)
+    }
+}

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol FollowerListViewModelProtocol: AnyObject {
+protocol FollowersListViewModelProtocol: AnyObject {
     var username: String { get set }
     var coordinator: SearchCoordinatorDelegate? { get set }
     
@@ -20,7 +20,7 @@ protocol FollowerListViewModelProtocol: AnyObject {
     func filter(by text: String)
 }
 
-class FollowersListViewModel: FollowerListViewModelProtocol {
+class FollowersListViewModel: FollowersListViewModelProtocol {
     var username: String
     var requester: RequesterProtocol
     weak var coordinator: SearchCoordinatorDelegate?
@@ -46,7 +46,7 @@ class FollowersListViewModel: FollowerListViewModelProtocol {
         if loadedAll { return }
         isLoading.value = true
         
-        requester.request(from: URLProvider(endpoint: .followers(username: username, page: currentPage))) { [weak self] (result: Result<[Follower], APIError>) in
+        requester.request(from: URLProvider(endpoint: .followers(username: username, page: currentPage))) { [weak self] (result: Result<[Follower], RequesterError>) in
             switch result {
             case .success(let data):
                 guard let self = self else { return }

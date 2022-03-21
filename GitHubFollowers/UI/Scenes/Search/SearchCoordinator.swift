@@ -56,6 +56,7 @@ extension SearchCoordinator: SearchCoordinatorDelegate {
         let viewModel = ProfileViewModel(username: username)
         let vc = ProfileViewController()
         vc.viewModel = viewModel
-        navigationController.pushViewController(vc, animated: true)
+        
+        navigationController.present(vc, animated: true)
     }
 }

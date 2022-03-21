@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias Completion<T> = (Result<T, APIError>) -> Void
+typealias Completion<T> = (Result<T, RequesterError>) -> Void
 
 protocol RequesterProtocol {
     func request<T: Decodable>(from urlProvider: URLProvider, completion: @escaping Completion<T>)
@@ -35,11 +35,15 @@ class Requester: RequesterProtocol {
                 completion(.failure(.invalidData))
                 return
             }
+            
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
 
             do {
-                let values = try JSONDecoder().decode(T.self, from: data)
+                let values = try decoder.decode(T.self, from: data)
                 completion(.success(values))
             } catch {
+                print(error)
                 completion(.failure(.decodeError))
             }
         }.resume()

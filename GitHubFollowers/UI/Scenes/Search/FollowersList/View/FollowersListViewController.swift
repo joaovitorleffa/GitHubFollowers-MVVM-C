@@ -8,7 +8,7 @@
 import UIKit
 
 class FollowersListViewController: BaseViewController<FollowersListView> {
-    var viewModel: FollowerListViewModelProtocol?
+    var viewModel: FollowersListViewModelProtocol?
     var followerViewModels: [FollowerViewModelProtocol] = []
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
 

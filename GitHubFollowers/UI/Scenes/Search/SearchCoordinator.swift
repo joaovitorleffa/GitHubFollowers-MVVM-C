@@ -53,10 +53,8 @@ extension SearchCoordinator: SearchCoordinatorDelegate {
     }
     
     func goToProfile(by username: String) {
-        let viewModel = ProfileViewModel(username: username)
-        let vc = ProfileViewController()
-        vc.viewModel = viewModel
-        
-        navigationController.present(vc, animated: true)
+        let coordinator = ProfileCoordinator(username: username, navigationController: navigationController)
+        childCoordinators.append(coordinator)
+        coordinator.start()
     }
 }

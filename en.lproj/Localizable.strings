@@ -11,6 +11,13 @@
 "EnterUsernameView.placeholder" = "Enter a username";
 "EnterUsernameView.btnTitle" = "Get followers";
 
+"ProfileView.btnTitle" = "Get repositories";
+"ProfileView.repositories" = "repositories";
+"ProfileView.followers" = "followers";
+"ProfileView.following" = "following";
+
+"Repositories.title" = "Repositories";
+
 "Error.username.title" = "Enter a username";
 "Error.username.message" = "Please enter a username. We need to know who to look for 😄";
 "Error.username.btnTitle" = "OK";

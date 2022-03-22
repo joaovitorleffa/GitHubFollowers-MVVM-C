@@ -18,6 +18,10 @@
 		2B4A400627E8C4FC00A36D5D /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4A400527E8C4FC00A36D5D /* RepositoryCell.swift */; };
 		2B4A400827E8F25D00A36D5D /* GFCardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4A400727E8F25D00A36D5D /* GFCardDetail.swift */; };
 		2B4A400A27E8F7AC00A36D5D /* GFDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4A400927E8F7AC00A36D5D /* GFDetails.swift */; };
+		2B4A400C27E9194100A36D5D /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4A400B27E9194100A36D5D /* ProfileCoordinator.swift */; };
+		2B75E9AE27E9EE9F00E3935F /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9AD27E9EE9F00E3935F /* RepositoriesViewController.swift */; };
+		2B75E9B027E9EF1D00E3935F /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9AF27E9EF1D00E3935F /* RepositoriesViewModel.swift */; };
+		2B75E9B227E9F37200E3935F /* RepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9B127E9F37200E3935F /* RepositoriesView.swift */; };
 		2BA1242027E383C7006B39CF /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1241F27E383C7006B39CF /* GFTextField.swift */; };
 		2BA1242327E39701006B39CF /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1242227E39701006B39CF /* Follower.swift */; };
 		2BA1242627E39860006B39CF /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1242527E39860006B39CF /* Requester.swift */; };
@@ -98,6 +102,10 @@
 		2B4A400527E8C4FC00A36D5D /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		2B4A400727E8F25D00A36D5D /* GFCardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFCardDetail.swift; sourceTree = "<group>"; };
 		2B4A400927E8F7AC00A36D5D /* GFDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFDetails.swift; sourceTree = "<group>"; };
+		2B4A400B27E9194100A36D5D /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		2B75E9AD27E9EE9F00E3935F /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		2B75E9AF27E9EF1D00E3935F /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
+		2B75E9B127E9F37200E3935F /* RepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesView.swift; sourceTree = "<group>"; };
 		2BA1241F27E383C7006B39CF /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		2BA1242227E39701006B39CF /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		2BA1242527E39860006B39CF /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
@@ -187,9 +195,9 @@
 		2B1729C727E4C08200DD130D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				2B4A400127E8C37700A36D5D /* View */,
-				2B4A400027E8C37100A36D5D /* ViewModel */,
-				2B4A3FFF27E8C36D00A36D5D /* Model */,
+				2B75E9AC27E9EE8900E3935F /* Repositories */,
+				2B75E9AB27E9EE7900E3935F /* UserDetails */,
+				2B4A400B27E9194100A36D5D /* ProfileCoordinator.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -197,7 +205,6 @@
 		2B4A3FFF27E8C36D00A36D5D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2B4A3FFD27E8BF2100A36D5D /* Repository.swift */,
 				2BDB3EA827E50CC200341FCC /* User.swift */,
 			);
 			path = Model;
@@ -227,6 +234,51 @@
 				2B4A400527E8C4FC00A36D5D /* RepositoryCell.swift */,
 			);
 			path = RepositoryCell;
+			sourceTree = "<group>";
+		};
+		2B75E9AB27E9EE7900E3935F /* UserDetails */ = {
+			isa = PBXGroup;
+			children = (
+				2B4A400127E8C37700A36D5D /* View */,
+				2B4A400027E8C37100A36D5D /* ViewModel */,
+				2B4A3FFF27E8C36D00A36D5D /* Model */,
+			);
+			path = UserDetails;
+			sourceTree = "<group>";
+		};
+		2B75E9AC27E9EE8900E3935F /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				2B75E9B427EA04E500E3935F /* View */,
+				2B75E9B327EA04DF00E3935F /* ViewModel */,
+				2B75E9B527EA04EB00E3935F /* Model */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		2B75E9B327EA04DF00E3935F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2B75E9AF27E9EF1D00E3935F /* RepositoriesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2B75E9B427EA04E500E3935F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B75E9B127E9F37200E3935F /* RepositoriesView.swift */,
+				2B75E9AD27E9EE9F00E3935F /* RepositoriesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B75E9B527EA04EB00E3935F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2B4A3FFD27E8BF2100A36D5D /* Repository.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2BA1242127E396EE006B39CF /* Model */ = {
@@ -832,10 +884,13 @@
 				2BA1243C27E3CBEE006B39CF /* CellSize.swift in Sources */,
 				2B1729C627E4B84B00DD130D /* GFLoadingView.swift in Sources */,
 				2B1729CD27E4F3CB00DD130D /* GFErrorView.swift in Sources */,
+				2B75E9B027E9EF1D00E3935F /* RepositoriesViewModel.swift in Sources */,
 				2BB2315827E27AEA001A5FF4 /* Alias.swift in Sources */,
 				2BA1242B27E3AB2C006B39CF /* URLProvider.swift in Sources */,
 				2B4A400627E8C4FC00A36D5D /* RepositoryCell.swift in Sources */,
+				2B75E9AE27E9EE9F00E3935F /* RepositoriesViewController.swift in Sources */,
 				2BA1243827E3B42C006B39CF /* Identifier.swift in Sources */,
+				2B75E9B227E9F37200E3935F /* RepositoriesView.swift in Sources */,
 				2BA1242027E383C7006B39CF /* GFTextField.swift in Sources */,
 				2B4A400A27E8F7AC00A36D5D /* GFDetails.swift in Sources */,
 				2BD1F9D727E3615B004EE9BF /* GFAlertVC.swift in Sources */,
@@ -858,6 +913,7 @@
 				2BB2314827E2653B001A5FF4 /* BaseViewController.swift in Sources */,
 				2BD1F9EE27E3734D004EE9BF /* GFButton.swift in Sources */,
 				2BB2313427E25CEB001A5FF4 /* MainTabBarController.swift in Sources */,
+				2B4A400C27E9194100A36D5D /* ProfileCoordinator.swift in Sources */,
 				2BB2314D27E26664001A5FF4 /* EnterUsernameView.swift in Sources */,
 				2BB2315A27E27C08001A5FF4 /* FollowersListViewController.swift in Sources */,
 				2BA1242327E39701006B39CF /* Follower.swift in Sources */,

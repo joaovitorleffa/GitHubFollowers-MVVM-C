@@ -45,8 +45,9 @@ class GFCardDetail: UIView {
         }
         
         label.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.bottom.equalTo(imageView)
             make.leading.equalTo(imageView.snp.trailing).offset(12)
+            make.trailing.equalToSuperview().inset(12)
         }
     }
     

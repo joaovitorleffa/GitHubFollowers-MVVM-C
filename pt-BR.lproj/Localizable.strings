@@ -11,6 +11,13 @@
 "EnterUsernameView.placeholder" = "Informe um nome de usário";
 "EnterUsernameView.btnTitle" = "Buscar seguidores";
 
+"ProfileView.btnTitle" = "Buscar repositórios";
+"ProfileView.repositories" = "repositórios";
+"ProfileView.followers" = "seguidores";
+"ProfileView.following" = "seguindo";
+
+"Repositories.title" = "Repositórios";
+
 "Error.username.title" = "Informe um nome de usuário";
 "Error.username.message" = "Por favor, informe um nome de usuário. Precisamos saber por quem procurar 😄";
 "Error.username.btnTitle" = "OK";

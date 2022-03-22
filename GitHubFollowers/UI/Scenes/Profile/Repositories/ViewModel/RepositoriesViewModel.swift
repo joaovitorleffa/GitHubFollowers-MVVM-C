@@ -1,43 +1,32 @@
 //
-//  ProfileViewModel.swift
+//  RepositoriesViewModel.swift
 //  GitHubFollowers
 //
-//  Created by joaovitor on 18/03/22.
+//  Created by joaovitor on 22/03/22.
 //
 
 import Foundation
 
-protocol ProfileViewModelProtocol: AnyObject {
+protocol RepositoriesViewModelProtocol: AnyObject {
     var username: String { get set }
-    var user: Observable<User?> { get set }
     var repositories: Observable<[Repository]> { get set }
+    var isLoading: Observable<Bool> { get set }
+    var isError: Observable<Bool> { get set }
 }
 
-class ProfileViewModel: ProfileViewModelProtocol {
+class RepositoriesViewModel: RepositoriesViewModelProtocol {
     var username: String
-    private var requester: RequesterProtocol
+    var requester: RequesterProtocol
     
-    var user: Observable<User?> = Observable(nil)
     var repositories: Observable<[Repository]> = Observable([])
+    var isError: Observable<Bool> = Observable(false)
+    var isLoading: Observable<Bool> = Observable(true)
     
     init(username: String, requester: RequesterProtocol = Requester()) {
         self.username = username
         self.requester = requester
         
-        fetchUser()
         fetchRepositories()
-    }
-    
-    func fetchUser() {
-        requester.request(from: URLProvider(endpoint: .user(username: username))) { [weak self] (result: Result<User, RequesterError>) in
-            switch result {
-            case .success(let user):
-                self?.user.value = user
-            case .failure(let error):
-                print(error)
-                // TODO: handle error
-            }
-        }
     }
     
     func fetchRepositories() {
@@ -45,8 +34,11 @@ class ProfileViewModel: ProfileViewModelProtocol {
             switch result {
             case .success(let repositories):
                 self?.repositories.value = repositories
+                self?.isLoading.value = false
             case .failure(let error):
-                print("[fetchRepositories] \(error)")
+                print("[fetchRepositories] \(error.localizedDescription)")
+                self?.isLoading.value = false
+                self?.isError.value = true
             }
         }
     }

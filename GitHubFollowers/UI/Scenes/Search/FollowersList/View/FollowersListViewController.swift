@@ -22,11 +22,11 @@ class FollowersListViewController: BaseViewController<FollowersListView> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func setupNavigationController() {
         title = viewModel?.username
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = customView.searchController
         customView.searchController.searchBar.delegate = self

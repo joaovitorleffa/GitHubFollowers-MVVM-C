@@ -43,6 +43,7 @@ class ProfileView: UIView {
     let followers = GFStats()
     let following = GFStats()
     let details = GFDetails()
+    let button = GFButton(title: strings.profileViewBtnTitle(), color: colors.green())
    
     
     let avatarImageView: UIImageView = {
@@ -104,16 +105,16 @@ class ProfileView: UIView {
         backgroundColor = colors.background()
     }
     
-    func setup(descriptor: ProfileViewDescriptor) {
+    func setup(_ descriptor: ProfileViewDescriptor) {
         nameLabel.text = descriptor.name
         bioLabel.text = descriptor.bio
         
         usernameLabel.text = descriptor.username
         avatarImageView.loadImage(from: descriptor.avatarURL)
         
-        repositories.setup(quantity: descriptor.repositories, label: "repositories")
-        followers.setup(quantity: descriptor.followers, label: "followers")
-        following.setup(quantity: descriptor.following, label: "following")
+        repositories.setup(quantity: descriptor.repositories, label: strings.profileViewRepositories())
+        followers.setup(quantity: descriptor.followers, label: strings.profileViewFollowers())
+        following.setup(quantity: descriptor.following, label: strings.profileViewFollowing())
         
         details.setup(company: descriptor.company,
                            location: descriptor.location,
@@ -130,6 +131,7 @@ extension ProfileView: ViewCode {
         addSubview(usernameLabel)
         addSubview(bioLabel)
         addSubview(details)
+        addSubview(button)
         addSubview(hStack)
         hStack.addArrangedSubview(repositories)
         hStack.addArrangedSubview(followers)
@@ -139,7 +141,7 @@ extension ProfileView: ViewCode {
     func setupConstraints() {
         avatarImageView.snp.makeConstraints { make in
             make.size.equalTo(100)
-            make.top.equalToSuperview().offset(32)
+            make.top.equalTo(safeAreaLayoutGuide).offset(32)
             make.centerX.equalToSuperview()
         }
         nameLabel.snp.makeConstraints { make in
@@ -165,6 +167,12 @@ extension ProfileView: ViewCode {
             make.bottom.equalTo(safeAreaLayoutGuide).inset(52)
             make.leading.equalTo(safeAreaLayoutGuide).offset(52)
             make.centerX.equalTo(safeAreaLayoutGuide)
+        }
+        button.snp.makeConstraints { make in
+            make.bottom.equalTo(hStack.snp.top).offset(-24)
+            make.leading.equalToSuperview().offset(16)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(44)
         }
     }
 }

@@ -33,8 +33,8 @@ class GFDetails: UIStackView {
     
     private func configure() {
         axis = .vertical
-        alignment = .leading
-        distribution = .fillProportionally
+        alignment = .fill
+        distribution = .fillEqually
         
         addArrangedSubview(company)
         addArrangedSubview(location)

@@ -88,7 +88,7 @@ class ProfileView: UIView {
     let hStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
-        stack.distribution = .equalCentering
+        stack.distribution = .fillEqually
         return stack
     }()
     
@@ -139,12 +139,14 @@ extension ProfileView: ViewCode {
         addSubview(nameLabel)
         addSubview(usernameLabel)
         addSubview(bioLabel)
-        addSubview(details)
-        addSubview(button)
+        
         addSubview(hStack)
         hStack.addArrangedSubview(repositories)
         hStack.addArrangedSubview(followers)
         hStack.addArrangedSubview(following)
+        
+        addSubview(details)
+        addSubview(button)
         
         addSubview(loadingView)
         addSubview(errorView)
@@ -156,39 +158,48 @@ extension ProfileView: ViewCode {
             make.top.equalTo(safeAreaLayoutGuide).offset(32)
             make.centerX.equalToSuperview()
         }
+        
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(avatarImageView.snp.bottom).offset(12)
             make.centerX.equalToSuperview()
         }
+        
         usernameLabel.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(4)
             make.centerX.equalToSuperview()
         }
+        
         bioLabel.snp.makeConstraints { make in
             make.top.equalTo(usernameLabel.snp.bottom).offset(12)
             make.leading.equalToSuperview().offset(16)
             make.centerX.equalToSuperview()
         }
-        details.snp.makeConstraints { make in
-            make.top.equalTo(bioLabel.snp.bottom).offset(24)
-            make.leading.equalToSuperview().offset(16)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(120)
-        }
+        
         hStack.snp.makeConstraints { make in
-            make.bottom.equalTo(safeAreaLayoutGuide).inset(52)
-            make.leading.equalTo(safeAreaLayoutGuide).offset(52)
-            make.centerX.equalTo(safeAreaLayoutGuide)
+            make.top.equalTo(bioLabel.snp.bottom).offset(24)
+            make.leading.centerX.equalToSuperview()
+            make.height.equalTo(50)
         }
-        button.snp.makeConstraints { make in
-            make.bottom.equalTo(hStack.snp.top).offset(-24)
+        
+        details.snp.makeConstraints { make in
+            make.top.equalTo(hStack.snp.bottom).offset(24)
             make.leading.equalToSuperview().offset(16)
             make.centerX.equalToSuperview()
-            make.height.equalTo(44)
+            make.height.equalTo(110)
+            
         }
+    
+        button.snp.makeConstraints { make in
+            make.bottom.equalTo(safeAreaLayoutGuide).inset(24)
+            make.leading.equalToSuperview().offset(16)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(50)
+        }
+        
         loadingView.snp.makeConstraints { make in
             make.top.leading.centerX.centerY.equalToSuperview()
         }
+        
         errorView.snp.makeConstraints { make in
             make.top.leading.centerX.centerY.equalToSuperview()
         }

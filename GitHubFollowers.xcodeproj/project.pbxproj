@@ -477,8 +477,8 @@
 		2BB2314027E262DD001A5FF4 /* EnterUsername */ = {
 			isa = PBXGroup;
 			children = (
-				2BB2315B27E27C1D001A5FF4 /* ViewModel */,
 				2BB2314B27E2664E001A5FF4 /* View */,
+				2BB2315B27E27C1D001A5FF4 /* ViewModel */,
 			);
 			path = EnterUsername;
 			sourceTree = "<group>";

@@ -11,6 +11,10 @@ protocol RepositoriesDelegate: AnyObject {
     func goToRepositories(by username: String)
 }
 
+protocol RepositoryDelegate: AnyObject {
+    func goToRepository(url: String)
+}
+
 class ProfileCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
@@ -32,7 +36,16 @@ class ProfileCoordinator: Coordinator {
 extension ProfileCoordinator: RepositoriesDelegate {
     func goToRepositories(by username: String) {
         let vc = RepositoriesViewController()
-        vc.viewModel = RepositoriesViewModel(username: username)
+        vc.viewModel = RepositoriesViewModel(username: username, coordinator: self)
+        navigationController.pushViewController(vc, animated: true)
+    }
+}
+
+extension ProfileCoordinator: RepositoryDelegate {
+    func goToRepository(url: String) {
+        let url = URL(string: url)
+        let vc = RepositoryViewController()
+        vc.viewModel = RepositoryViewModel(repositoryUrl: url)
         navigationController.pushViewController(vc, animated: true)
     }
 }

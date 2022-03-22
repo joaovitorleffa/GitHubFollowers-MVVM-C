@@ -9,22 +9,26 @@ import Foundation
 
 protocol RepositoriesViewModelProtocol: AnyObject {
     var username: String { get set }
+    var coordinator: RepositoryDelegate { get set }
     var repositories: Observable<[Repository]> { get set }
     var isLoading: Observable<Bool> { get set }
     var isError: Observable<Bool> { get set }
+    func showRepository(_ repository: Repository)
 }
 
 class RepositoriesViewModel: RepositoriesViewModelProtocol {
     var username: String
+    var coordinator: RepositoryDelegate
     var requester: RequesterProtocol
     
     var repositories: Observable<[Repository]> = Observable([])
     var isError: Observable<Bool> = Observable(false)
     var isLoading: Observable<Bool> = Observable(true)
     
-    init(username: String, requester: RequesterProtocol = Requester()) {
+    init(username: String, coordinator: RepositoryDelegate, requester: RequesterProtocol = Requester()) {
         self.username = username
         self.requester = requester
+        self.coordinator = coordinator
         
         fetchRepositories()
     }
@@ -41,5 +45,9 @@ class RepositoriesViewModel: RepositoriesViewModelProtocol {
                 self?.isError.value = true
             }
         }
+    }
+    
+    func showRepository(_ repository: Repository) {
+        coordinator.goToRepository(url: repository.htmlURL)
     }
 }

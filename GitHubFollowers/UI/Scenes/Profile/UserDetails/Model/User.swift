@@ -8,7 +8,7 @@
 import Foundation
 
 @propertyWrapper
-struct Social {
+struct Social: Equatable {
     let wrappedValue: String
 }
 
@@ -26,7 +26,7 @@ extension Social: Codable {
 }
 
 @propertyWrapper
-struct ThousandAbbreviation {
+struct ThousandAbbreviation: Equatable {
     let wrappedValue: String
 }
 
@@ -43,7 +43,7 @@ extension ThousandAbbreviation: Codable {
     }
 }
 
-struct User: Codable {
+struct User: Codable, Equatable {
     @Social var login: String
     let id: Int
     let avatarURL, url, htmlURL, followersURL: String
@@ -79,6 +79,36 @@ struct User: Codable {
         case followers, following
         case createdAt = "created_at"
         case updatedAt = "updated_at"
+    }
+}
+
+extension User {
+    static func dummy() -> User {
+        User(login: "joaovitorleffa",
+             id: 44384402,
+             avatarURL: "https://avatars.githubusercontent.com/u/44384402?v=4",
+             url: "https://api.github.com/users/joaovitorleffa",
+             htmlURL: "https://github.com/joaovitorleffa",
+             followersURL: "https://api.github.com/users/joaovitorleffa/followers",
+             followingURL: "https://api.github.com/users/joaovitorleffa/following{/other_user}",
+             gistsURL: "https://api.github.com/users/joaovitorleffa/gists{/gist_id}",
+             starredURL: "https://api.github.com/users/joaovitorleffa/starred{/owner}{/repo}",
+             subscriptionsURL: "https://api.github.com/users/joaovitorleffa/subscriptions",
+             organizationsURL: "https://api.github.com/users/joaovitorleffa/orgs",
+             reposURL: "https://api.github.com/users/joaovitorleffa/repos",
+             name: "João Vitor",
+             bio: "iOS Developer at CWI",
+             email: nil,
+             twitterUsername: nil,
+             company: "CWI",
+             location: "Torres, RS",
+             blog: nil,
+             publicRepos: "53",
+             publicGists: "0",
+             followers: "32",
+             following: "50",
+             createdAt: "2018-10-23T00:26:15Z".date,
+             updatedAt: "2022-03-01T16:11:55Z".date)
     }
 }
 

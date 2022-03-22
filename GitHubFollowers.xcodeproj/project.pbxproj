@@ -22,6 +22,10 @@
 		2B75E9AE27E9EE9F00E3935F /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9AD27E9EE9F00E3935F /* RepositoriesViewController.swift */; };
 		2B75E9B027E9EF1D00E3935F /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9AF27E9EF1D00E3935F /* RepositoriesViewModel.swift */; };
 		2B75E9B227E9F37200E3935F /* RepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9B127E9F37200E3935F /* RepositoriesView.swift */; };
+		2B75E9C227EA56FF00E3935F /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9C127EA56FF00E3935F /* ProfileViewModelTests.swift */; };
+		2B75E9C427EA578C00E3935F /* ProfileCoordinatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9C327EA578C00E3935F /* ProfileCoordinatorSpy.swift */; };
+		2B75E9C627EA5CE600E3935F /* String+dateFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9C527EA5CE600E3935F /* String+dateFromString.swift */; };
+		2B75E9CA27EA619D00E3935F /* RepositoriesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9C927EA619D00E3935F /* RepositoriesViewModelTests.swift */; };
 		2BA1242027E383C7006B39CF /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1241F27E383C7006B39CF /* GFTextField.swift */; };
 		2BA1242327E39701006B39CF /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1242227E39701006B39CF /* Follower.swift */; };
 		2BA1242627E39860006B39CF /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1242527E39860006B39CF /* Requester.swift */; };
@@ -106,6 +110,10 @@
 		2B75E9AD27E9EE9F00E3935F /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		2B75E9AF27E9EF1D00E3935F /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
 		2B75E9B127E9F37200E3935F /* RepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesView.swift; sourceTree = "<group>"; };
+		2B75E9C127EA56FF00E3935F /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
+		2B75E9C327EA578C00E3935F /* ProfileCoordinatorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinatorSpy.swift; sourceTree = "<group>"; };
+		2B75E9C527EA5CE600E3935F /* String+dateFromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+dateFromString.swift"; sourceTree = "<group>"; };
+		2B75E9C927EA619D00E3935F /* RepositoriesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModelTests.swift; sourceTree = "<group>"; };
 		2BA1241F27E383C7006B39CF /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		2BA1242227E39701006B39CF /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		2BA1242527E39860006B39CF /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
@@ -349,6 +357,7 @@
 			children = (
 				2BA1243927E3C5A2006B39CF /* UIImageView+loadImage.swift */,
 				2B4A3FFB27E8B2EC00A36D5D /* Int+Format.swift */,
+				2B75E9C527EA5CE600E3935F /* String+dateFromString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -401,6 +410,8 @@
 				2BB2311727E25962001A5FF4 /* GitHubFollowersTests.swift */,
 				2BDB3EA427E5033200341FCC /* EnterUsernameViewModelTests.swift */,
 				2BDB3EA627E5064B00341FCC /* FollowersListViewModelTests.swift */,
+				2B75E9C127EA56FF00E3935F /* ProfileViewModelTests.swift */,
+				2B75E9C927EA619D00E3935F /* RepositoriesViewModelTests.swift */,
 			);
 			path = GitHubFollowersTests;
 			sourceTree = "<group>";
@@ -587,6 +598,7 @@
 			isa = PBXGroup;
 			children = (
 				2BDB3EA227E5026800341FCC /* SearchCoordinatorSpy.swift */,
+				2B75E9C327EA578C00E3935F /* ProfileCoordinatorSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -888,6 +900,7 @@
 				2BB2315827E27AEA001A5FF4 /* Alias.swift in Sources */,
 				2BA1242B27E3AB2C006B39CF /* URLProvider.swift in Sources */,
 				2B4A400627E8C4FC00A36D5D /* RepositoryCell.swift in Sources */,
+				2B75E9C627EA5CE600E3935F /* String+dateFromString.swift in Sources */,
 				2B75E9AE27E9EE9F00E3935F /* RepositoriesViewController.swift in Sources */,
 				2BA1243827E3B42C006B39CF /* Identifier.swift in Sources */,
 				2B75E9B227E9F37200E3935F /* RepositoriesView.swift in Sources */,
@@ -934,7 +947,10 @@
 				2BDB3EA127E5015C00341FCC /* RequesterStub.swift in Sources */,
 				2BDB3EA327E5026800341FCC /* SearchCoordinatorSpy.swift in Sources */,
 				2BB2311827E25962001A5FF4 /* GitHubFollowersTests.swift in Sources */,
+				2B75E9CA27EA619D00E3935F /* RepositoriesViewModelTests.swift in Sources */,
+				2B75E9C227EA56FF00E3935F /* ProfileViewModelTests.swift in Sources */,
 				2BDB3EA527E5033200341FCC /* EnterUsernameViewModelTests.swift in Sources */,
+				2B75E9C427EA578C00E3935F /* ProfileCoordinatorSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

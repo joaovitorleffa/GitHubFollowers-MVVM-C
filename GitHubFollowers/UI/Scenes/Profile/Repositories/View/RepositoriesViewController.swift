@@ -17,11 +17,6 @@ class RepositoriesViewController: BaseViewController<RepositoriesView> {
         configure()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
     func setupBinds() {
         viewModel?.repositories.bind(closure: { [weak self] repositories in
             DispatchQueue.main.async {

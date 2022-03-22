@@ -7,15 +7,12 @@
 
 import UIKit
 
-protocol RepositoriesDelegate: AnyObject {
+protocol ProfileCoordinatorDelegate: Coordinator {
+    func goToRepository(url: String)
     func goToRepositories(by username: String)
 }
 
-protocol RepositoryDelegate: AnyObject {
-    func goToRepository(url: String)
-}
-
-class ProfileCoordinator: Coordinator {
+class ProfileCoordinator: ProfileCoordinatorDelegate {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     
@@ -31,17 +28,13 @@ class ProfileCoordinator: Coordinator {
         vc.viewModel = ProfileViewModel(username: username, coordinator: self)
         navigationController.pushViewController(vc, animated: true)
     }
-}
-
-extension ProfileCoordinator: RepositoriesDelegate {
+    
     func goToRepositories(by username: String) {
         let vc = RepositoriesViewController()
         vc.viewModel = RepositoriesViewModel(username: username, coordinator: self)
         navigationController.pushViewController(vc, animated: true)
     }
-}
-
-extension ProfileCoordinator: RepositoryDelegate {
+    
     func goToRepository(url: String) {
         let url = URL(string: url)
         let vc = RepositoryViewController()
@@ -49,3 +42,4 @@ extension ProfileCoordinator: RepositoryDelegate {
         navigationController.pushViewController(vc, animated: true)
     }
 }
+

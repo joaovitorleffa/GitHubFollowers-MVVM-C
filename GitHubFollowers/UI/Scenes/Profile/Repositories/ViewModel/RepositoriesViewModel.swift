@@ -9,7 +9,7 @@ import Foundation
 
 protocol RepositoriesViewModelProtocol: AnyObject {
     var username: String { get set }
-    var coordinator: RepositoryDelegate { get set }
+    var coordinator: ProfileCoordinatorDelegate { get set }
     var repositories: Observable<[Repository]> { get set }
     var isLoading: Observable<Bool> { get set }
     var isError: Observable<Bool> { get set }
@@ -18,14 +18,14 @@ protocol RepositoriesViewModelProtocol: AnyObject {
 
 class RepositoriesViewModel: RepositoriesViewModelProtocol {
     var username: String
-    var coordinator: RepositoryDelegate
+    var coordinator: ProfileCoordinatorDelegate
     var requester: RequesterProtocol
     
     var repositories: Observable<[Repository]> = Observable([])
     var isError: Observable<Bool> = Observable(false)
     var isLoading: Observable<Bool> = Observable(true)
     
-    init(username: String, coordinator: RepositoryDelegate, requester: RequesterProtocol = Requester()) {
+    init(username: String, coordinator: ProfileCoordinatorDelegate, requester: RequesterProtocol = Requester()) {
         self.username = username
         self.requester = requester
         self.coordinator = coordinator

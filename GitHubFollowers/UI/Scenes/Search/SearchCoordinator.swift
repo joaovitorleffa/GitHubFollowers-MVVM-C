@@ -13,7 +13,7 @@ protocol SearchCoordinatorDelegate: AnyObject {
     func goToProfile(by username: String)
 }
 
-class SearchCoordinator: Coordinator {
+class SearchCoordinator: NSObject, Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     
@@ -22,6 +22,8 @@ class SearchCoordinator: Coordinator {
     }
     
     func start() {
+        navigationController.delegate = self
+        
         let vc = EnterUsernameViewController()
         let viewModel = EnterUsernameViewModel()
         viewModel.findFollowers = { [weak self] text in
@@ -30,6 +32,15 @@ class SearchCoordinator: Coordinator {
         vc.viewModel = viewModel
         vc.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func cleanDidFinish(_ child: Coordinator?) {
+        for (index, coordinator) in childCoordinators.enumerated() {
+            if coordinator === child {
+                childCoordinators.remove(at: index)
+                break
+            }
+        }
     }
 }
 
@@ -56,5 +67,18 @@ extension SearchCoordinator: SearchCoordinatorDelegate {
         let coordinator = ProfileCoordinator(username: username, navigationController: navigationController)
         childCoordinators.append(coordinator)
         coordinator.start()
+    }
+}
+
+extension SearchCoordinator: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else { return }
+        
+        if navigationController.contains(fromViewController) { return }
+        
+        // MARK: remove ProfileCoordinator from childCoordinators when user press back button in ProfileViewController
+        if let profileViewController = fromViewController as? ProfileViewController, let coordinator = profileViewController.viewModel?.coordinator {
+            cleanDidFinish(coordinator)
+        }
     }
 }

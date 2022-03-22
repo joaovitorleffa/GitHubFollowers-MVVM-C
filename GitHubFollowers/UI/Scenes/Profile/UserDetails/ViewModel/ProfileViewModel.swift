@@ -9,7 +9,7 @@ import Foundation
 
 protocol ProfileViewModelProtocol: AnyObject {
     var username: String { get set }
-    var coordinator: RepositoriesDelegate { get set }
+    var coordinator: ProfileCoordinatorDelegate { get set }
     var user: Observable<User?> { get set }
     var isLoading: Observable<Bool> { get set }
     var isError: Observable<Bool> { get set }
@@ -19,14 +19,14 @@ protocol ProfileViewModelProtocol: AnyObject {
 
 class ProfileViewModel: ProfileViewModelProtocol {
     var username: String
-    var coordinator: RepositoriesDelegate
+    var coordinator: ProfileCoordinatorDelegate
     private var requester: RequesterProtocol
     
     var user: Observable<User?> = Observable(nil)
     var isLoading: Observable<Bool> = Observable(true)
     var isError: Observable<Bool> = Observable(false)
     
-    init(username: String, coordinator: RepositoriesDelegate, requester: RequesterProtocol = Requester()) {
+    init(username: String, coordinator: ProfileCoordinatorDelegate, requester: RequesterProtocol = Requester()) {
         self.username = username
         self.requester = requester
         self.coordinator = coordinator

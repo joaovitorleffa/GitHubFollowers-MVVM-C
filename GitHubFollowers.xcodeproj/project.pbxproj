@@ -199,10 +199,10 @@
 		2B1729C727E4C08200DD130D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				2B4A400B27E9194100A36D5D /* ProfileCoordinator.swift */,
 				2B75E9B627EA09DE00E3935F /* Repository */,
 				2B75E9AC27E9EE8900E3935F /* Repositories */,
 				2B75E9AB27E9EE7900E3935F /* UserDetails */,
-				2B4A400B27E9194100A36D5D /* ProfileCoordinator.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";

@@ -50,5 +50,17 @@ class ProfileViewController: BaseViewController<ProfileView> {
                                                             following: user.following))
             }
         })
+        
+        viewModel?.isLoading.bind(closure: { [weak self] isLoading in
+            DispatchQueue.main.async {
+                self?.customView.showLoadingView(when: isLoading)
+            }
+        })
+        
+        viewModel?.isError.bind(closure: { [weak self] isError in
+            DispatchQueue.main.async {
+                self?.customView.showErrorView(when: isError)
+            }
+        })
     }
 }

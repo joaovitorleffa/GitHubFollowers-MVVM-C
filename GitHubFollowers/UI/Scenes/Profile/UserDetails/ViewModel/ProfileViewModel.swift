@@ -11,7 +11,9 @@ protocol ProfileViewModelProtocol: AnyObject {
     var username: String { get set }
     var coordinator: RepositoriesDelegate { get set }
     var user: Observable<User?> { get set }
-    var repositories: Observable<[Repository]> { get set }
+    var isLoading: Observable<Bool> { get set }
+    var isError: Observable<Bool> { get set }
+    
     func getRepositories()
 }
 
@@ -21,7 +23,8 @@ class ProfileViewModel: ProfileViewModelProtocol {
     private var requester: RequesterProtocol
     
     var user: Observable<User?> = Observable(nil)
-    var repositories: Observable<[Repository]> = Observable([])
+    var isLoading: Observable<Bool> = Observable(true)
+    var isError: Observable<Bool> = Observable(false)
     
     init(username: String, coordinator: RepositoriesDelegate, requester: RequesterProtocol = Requester()) {
         self.username = username
@@ -29,7 +32,6 @@ class ProfileViewModel: ProfileViewModelProtocol {
         self.coordinator = coordinator
         
         fetchUser()
-        fetchRepositories()
     }
     
     func fetchUser() {
@@ -37,20 +39,11 @@ class ProfileViewModel: ProfileViewModelProtocol {
             switch result {
             case .success(let user):
                 self?.user.value = user
+                self?.isLoading.value = false
             case .failure(let error):
-                print(error)
-                // TODO: handle error
-            }
-        }
-    }
-    
-    func fetchRepositories() {
-        requester.request(from: URLProvider(endpoint: .repositories(username: username))) { [weak self] (result: Result<[Repository], RequesterError>) in
-            switch result {
-            case .success(let repositories):
-                self?.repositories.value = repositories
-            case .failure(let error):
-                print("[fetchRepositories] \(error)")
+                print("[fetchUser] \(error.localizedDescription)")
+                self?.isLoading.value = false
+                self?.isError.value = true
             }
         }
     }

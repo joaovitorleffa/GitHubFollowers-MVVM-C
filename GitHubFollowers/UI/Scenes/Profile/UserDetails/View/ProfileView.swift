@@ -44,8 +44,9 @@ class ProfileView: UIView {
     let following = GFStats()
     let details = GFDetails()
     let button = GFButton(title: strings.profileViewBtnTitle(), color: colors.green())
+    let loadingView = GFLoadingView()
+    let errorView = GFErrorView()
    
-    
     let avatarImageView: UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFit
@@ -122,6 +123,14 @@ class ProfileView: UIView {
                            blog: descriptor.blog,
                            twitter: descriptor.twitter)
     }
+    
+    func showLoadingView(when show: Bool) {
+        loadingView.isHidden = !show
+    }
+    
+    func showErrorView(when show: Bool) {
+        errorView.isHidden = !show
+    }
 }
 
 extension ProfileView: ViewCode {
@@ -136,6 +145,9 @@ extension ProfileView: ViewCode {
         hStack.addArrangedSubview(repositories)
         hStack.addArrangedSubview(followers)
         hStack.addArrangedSubview(following)
+        
+        addSubview(loadingView)
+        addSubview(errorView)
     }
     
     func setupConstraints() {
@@ -173,6 +185,12 @@ extension ProfileView: ViewCode {
             make.leading.equalToSuperview().offset(16)
             make.centerX.equalToSuperview()
             make.height.equalTo(44)
+        }
+        loadingView.snp.makeConstraints { make in
+            make.top.leading.centerX.centerY.equalToSuperview()
+        }
+        errorView.snp.makeConstraints { make in
+            make.top.leading.centerX.centerY.equalToSuperview()
         }
     }
 }

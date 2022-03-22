@@ -8,7 +8,6 @@
 import UIKit
 
 protocol ProfileCoordinatorDelegate: Coordinator {
-    func goToRepository(url: String)
     func goToRepositories(by username: String)
 }
 
@@ -31,14 +30,7 @@ class ProfileCoordinator: ProfileCoordinatorDelegate {
     
     func goToRepositories(by username: String) {
         let vc = RepositoriesViewController()
-        vc.viewModel = RepositoriesViewModel(username: username, coordinator: self)
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func goToRepository(url: String) {
-        let url = URL(string: url)
-        let vc = RepositoryViewController()
-        vc.viewModel = RepositoryViewModel(repositoryUrl: url)
+        vc.viewModel = RepositoriesViewModel(username: username)
         navigationController.pushViewController(vc, animated: true)
     }
 }

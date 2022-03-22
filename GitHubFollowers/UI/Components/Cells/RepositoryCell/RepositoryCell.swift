@@ -9,10 +9,17 @@ import UIKit
 import SnapKit
 
 class RepositoryCell: UITableViewCell, Identifier {
+    let containerView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 0
+        view.backgroundColor = colors.textField()
+        return view
+    }()
+    
     let vStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = 8
+        stack.distribution = .fillEqually
         return stack
     }()
     
@@ -69,7 +76,8 @@ class RepositoryCell: UITableViewCell, Identifier {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
-        backgroundColor = colors.textField()
+        backgroundColor = colors.background()
+        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {
@@ -85,7 +93,8 @@ class RepositoryCell: UITableViewCell, Identifier {
 
 extension RepositoryCell: ViewCode {
     func buildViewHierarchy() {
-        addSubview(vStack)
+        addSubview(containerView)
+        containerView.addSubview(vStack)
         vStack.addArrangedSubview(hStack)
         
         hStack.addArrangedSubview(nameLabel)
@@ -97,10 +106,15 @@ extension RepositoryCell: ViewCode {
     }
     
     func setupConstraints() {
-        vStack.snp.makeConstraints { make in
+        containerView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.centerX.equalToSuperview()
-            make.height.equalTo(100)
+            make.height.equalTo(110)
+        }
+        vStack.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().inset(12)
+            make.leading.equalToSuperview().offset(8)
+            make.centerX.centerY.equalToSuperview()
         }
         starsImageView.snp.makeConstraints { make in
             make.size.equalTo(16)

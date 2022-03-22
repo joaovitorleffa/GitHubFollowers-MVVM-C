@@ -20,9 +20,7 @@ class RepositoriesViewController: BaseViewController<RepositoriesView> {
     func setupBinds() {
         viewModel?.repositories.bind(closure: { [weak self] repositories in
             DispatchQueue.main.async {
-                self?.repositoriesViewModels = repositories.map { repository in RepositoryCellViewModel(repository: repository) {
-                    self?.viewModel?.showRepository(repository)
-                } }
+                self?.repositoriesViewModels = repositories.map { RepositoryCellViewModel(repository: $0) }
                 self?.customView.tableView.reloadData()
             }
         })
@@ -51,11 +49,6 @@ class RepositoriesViewController: BaseViewController<RepositoriesView> {
 extension RepositoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         120
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewModel = repositoriesViewModels[indexPath.row]
-        viewModel.showRepository?()
     }
 }
 

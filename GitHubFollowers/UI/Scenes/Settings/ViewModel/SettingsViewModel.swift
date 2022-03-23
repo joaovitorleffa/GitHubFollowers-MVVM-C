@@ -21,18 +21,27 @@ class SettingsViewModel: SettingsViewModelProtocol {
         sections = [.init(title: strings.settingsViewSectionAppearance(),
                           options: [
                             .switchCell(model: .init(title: strings.settingsViewOptionDarkMode(),
-                                                     isActive: false,
+                                                     isActive: UserInterfaceStyleManager.shared.currentStyle == .dark,
                                                      icon: UIImage(systemName: "moon.fill"),
                                                      iconBackgroundColor: .systemPink,
-                                                     handler: { print("dark mode cell tapped") }))
+                                                     handler: {
+                                                         let current = UserInterfaceStyleManager.shared.currentStyle
+                                                     
+                                                         let darkModeOn = current == .dark ? false : true
+                                                         
+                                                         UserDefaults.standard.set(darkModeOn, forKey: UserInterfaceStyleManager.userInterfaceStyleDarkModeOn)
+                                                         UserInterfaceStyleManager.shared.updateUserInterfaceStyle(darkModeOn)
+                                                     }))
                           ]),
                     .init(title: strings.settingsViewSectionLanguage(), options: [
-                        .selectionCell(model: .init(title: strings.settingsViewOptionPtBR(),
+                        .selectionCell(model: .init(identifier: "pt-BR",
+                                                    title: strings.settingsViewOptionPtBR(),
                                                     isActive: true,
                                                     handler: {
                                                         print("Português - Brasil")
                                                     })),
-                        .selectionCell(model: .init(title: strings.settingsViewOptionEnglish(),
+                        .selectionCell(model: .init(identifier: "en",
+                                                    title: strings.settingsViewOptionEnglish(),
                                                     isActive: false,
                                                     handler: {
                                                         print("Inglês")

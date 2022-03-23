@@ -27,6 +27,7 @@ struct SettingsSwitchOption {
 }
 
 struct SettingsSelectionOption {
+    let identifier: String
     let title: String
     var isActive: Bool
     let handler: (() -> Void)

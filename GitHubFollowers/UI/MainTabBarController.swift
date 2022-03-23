@@ -14,9 +14,12 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startObserving(&UserInterfaceStyleManager.shared)
+        
         search.start()
         favorites.start()
         settings.start()
+        
         viewControllers = [search.navigationController, favorites.navigationController, settings.navigationController]
     }
 }

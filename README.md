@@ -7,4 +7,5 @@ Aplicativo inspirado na ideia de projeto do curso [GitHub Followers](https://sea
 
 ### Bibliotecas:
 - [Nuke](https://kean.blog/nuke/guides/welcome);
-- [SnapKit](https://snapkit.io/).
+- [SnapKit](https://snapkit.io/);
+- [R.swift](https://github.com/mac-cain13/R.swift).

@@ -6,6 +6,8 @@
   
 */
 
+"TabBar.settings.title" = "Settings";
+
 "EnterUsernameView.bar.title" = "Search";
 "EnterUsernameView.title" = "Followers";
 "EnterUsernameView.placeholder" = "Enter a username";
@@ -17,6 +19,13 @@
 "ProfileView.following" = "following";
 
 "Repositories.title" = "Repositories";
+
+"SettingsView.title" = "Settings";
+"SettingsView.section.appearance" = "Appearance";
+"SettingsView.section.language" = "Language";
+"SettingsView.option.darkMode" = "Dark mode";
+"SettingsView.option.ptBR" = "Portuguese - Brazil";
+"SettingsView.option.english" = "English";
 
 "Error.username.title" = "Enter a username";
 "Error.username.message" = "Please enter a username. We need to know who to look for 😄";

@@ -58,6 +58,14 @@
 		2BB2315D27E27C2E001A5FF4 /* EnterUsernameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2315C27E27C2E001A5FF4 /* EnterUsernameViewModel.swift */; };
 		2BB2316027E283BC001A5FF4 /* FollowersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2315F27E283BC001A5FF4 /* FollowersListView.swift */; };
 		2BB2316327E28588001A5FF4 /* FollowersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2316227E28588001A5FF4 /* FollowersListViewModel.swift */; };
+		2BC23B5C27EB5D8100E5F6FD /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC23B5B27EB5D8100E5F6FD /* SettingsCoordinator.swift */; };
+		2BC23B5E27EB5DC300E5F6FD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC23B5D27EB5DC300E5F6FD /* SettingsViewController.swift */; };
+		2BC23B6027EB60AD00E5F6FD /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC23B5F27EB60AD00E5F6FD /* Setting.swift */; };
+		2BC23B6527EB624900E5F6FD /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC23B6427EB624900E5F6FD /* SelectionTableViewCell.swift */; };
+		2BC23B6727EB629E00E5F6FD /* SelectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC23B6627EB629E00E5F6FD /* SelectionCellViewModel.swift */; };
+		2BC23B6927EB638500E5F6FD /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC23B6827EB638500E5F6FD /* SwitchTableViewCell.swift */; };
+		2BC23B6D27EB698200E5F6FD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC23B6C27EB698200E5F6FD /* SettingsView.swift */; };
+		2BC23B6F27EB6A5900E5F6FD /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC23B6E27EB6A5900E5F6FD /* SettingsViewModel.swift */; };
 		2BD1F9D727E3615B004EE9BF /* GFAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F9D627E3615B004EE9BF /* GFAlertVC.swift */; };
 		2BD1F9E027E36AC5004EE9BF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F9DF27E36AC5004EE9BF /* R.generated.swift */; };
 		2BD1F9E427E36EC2004EE9BF /* GFAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F9E327E36EC2004EE9BF /* GFAlertView.swift */; };
@@ -151,6 +159,14 @@
 		2BB2315C27E27C2E001A5FF4 /* EnterUsernameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUsernameViewModel.swift; sourceTree = "<group>"; };
 		2BB2315F27E283BC001A5FF4 /* FollowersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListView.swift; sourceTree = "<group>"; };
 		2BB2316227E28588001A5FF4 /* FollowersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListViewModel.swift; sourceTree = "<group>"; };
+		2BC23B5B27EB5D8100E5F6FD /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		2BC23B5D27EB5DC300E5F6FD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2BC23B5F27EB60AD00E5F6FD /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		2BC23B6427EB624900E5F6FD /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
+		2BC23B6627EB629E00E5F6FD /* SelectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCellViewModel.swift; sourceTree = "<group>"; };
+		2BC23B6827EB638500E5F6FD /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		2BC23B6C27EB698200E5F6FD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2BC23B6E27EB6A5900E5F6FD /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		2BD1F9D627E3615B004EE9BF /* GFAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertVC.swift; sourceTree = "<group>"; };
 		2BD1F9DF27E36AC5004EE9BF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		2BD1F9E327E36EC2004EE9BF /* GFAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertView.swift; sourceTree = "<group>"; };
@@ -321,6 +337,7 @@
 		2BA1242E27E3B068006B39CF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2BC23B6127EB621000E5F6FD /* SettingsCells */,
 				2B4A400227E8C38F00A36D5D /* RepositoryCell */,
 				2BA1243127E3B08A006B39CF /* FollowerCell */,
 			);
@@ -441,6 +458,7 @@
 				2B1729C727E4C08200DD130D /* Profile */,
 				2BB2314227E2630F001A5FF4 /* Favorites */,
 				2BB2313F27E262CD001A5FF4 /* Search */,
+				2BC23B5527EB5CD700E5F6FD /* Settings */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -523,6 +541,68 @@
 				2BB2316227E28588001A5FF4 /* FollowersListViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2BC23B5527EB5CD700E5F6FD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2BC23B5B27EB5D8100E5F6FD /* SettingsCoordinator.swift */,
+				2BC23B5627EB5CE300E5F6FD /* View */,
+				2BC23B5727EB5CEA00E5F6FD /* ViewModel */,
+				2BC23B5827EB5CF500E5F6FD /* Model */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		2BC23B5627EB5CE300E5F6FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2BC23B5D27EB5DC300E5F6FD /* SettingsViewController.swift */,
+				2BC23B6C27EB698200E5F6FD /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2BC23B5727EB5CEA00E5F6FD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2BC23B6E27EB6A5900E5F6FD /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2BC23B5827EB5CF500E5F6FD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2BC23B5F27EB60AD00E5F6FD /* Setting.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2BC23B6127EB621000E5F6FD /* SettingsCells */ = {
+			isa = PBXGroup;
+			children = (
+				2BC23B6327EB622D00E5F6FD /* SwitchCell */,
+				2BC23B6227EB622300E5F6FD /* SelectionCell */,
+			);
+			path = SettingsCells;
+			sourceTree = "<group>";
+		};
+		2BC23B6227EB622300E5F6FD /* SelectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				2BC23B6427EB624900E5F6FD /* SelectionTableViewCell.swift */,
+				2BC23B6627EB629E00E5F6FD /* SelectionCellViewModel.swift */,
+			);
+			path = SelectionCell;
+			sourceTree = "<group>";
+		};
+		2BC23B6327EB622D00E5F6FD /* SwitchCell */ = {
+			isa = PBXGroup;
+			children = (
+				2BC23B6827EB638500E5F6FD /* SwitchTableViewCell.swift */,
+			);
+			path = SwitchCell;
 			sourceTree = "<group>";
 		};
 		2BD1F9D127E36059004EE9BF /* UI */ = {
@@ -889,14 +969,17 @@
 				2BB2315D27E27C2E001A5FF4 /* EnterUsernameViewModel.swift in Sources */,
 				2BB2313227E25A03001A5FF4 /* Coordinator.swift in Sources */,
 				2B4A3FFC27E8B2EC00A36D5D /* Int+Format.swift in Sources */,
+				2BC23B6F27EB6A5900E5F6FD /* SettingsViewModel.swift in Sources */,
 				2B4A400827E8F25D00A36D5D /* GFCardDetail.swift in Sources */,
 				2BA1243A27E3C5A2006B39CF /* UIImageView+loadImage.swift in Sources */,
 				2B4A3FFE27E8BF2100A36D5D /* Repository.swift in Sources */,
 				2BB2314A27E26583001A5FF4 /* ViewCode.swift in Sources */,
 				2BA1243C27E3CBEE006B39CF /* CellSize.swift in Sources */,
 				2B1729C627E4B84B00DD130D /* GFLoadingView.swift in Sources */,
+				2BC23B6927EB638500E5F6FD /* SwitchTableViewCell.swift in Sources */,
 				2B1729CD27E4F3CB00DD130D /* GFErrorView.swift in Sources */,
 				2B75E9B027E9EF1D00E3935F /* RepositoriesViewModel.swift in Sources */,
+				2BC23B6027EB60AD00E5F6FD /* Setting.swift in Sources */,
 				2BB2315827E27AEA001A5FF4 /* Alias.swift in Sources */,
 				2BA1242B27E3AB2C006B39CF /* URLProvider.swift in Sources */,
 				2B4A400627E8C4FC00A36D5D /* RepositoryCell.swift in Sources */,
@@ -909,6 +992,8 @@
 				2BD1F9D727E3615B004EE9BF /* GFAlertVC.swift in Sources */,
 				2BB2313B27E2609D001A5FF4 /* FavoritesCoordinator.swift in Sources */,
 				2BD1F9E427E36EC2004EE9BF /* GFAlertView.swift in Sources */,
+				2BC23B6527EB624900E5F6FD /* SelectionTableViewCell.swift in Sources */,
+				2BC23B5E27EB5DC300E5F6FD /* SettingsViewController.swift in Sources */,
 				2BA1242D27E3AC02006B39CF /* APISupport.swift in Sources */,
 				2BA1242627E39860006B39CF /* Requester.swift in Sources */,
 				2BDB3EAB27E5102500341FCC /* ProfileView.swift in Sources */,
@@ -928,10 +1013,13 @@
 				2BB2313427E25CEB001A5FF4 /* MainTabBarController.swift in Sources */,
 				2B4A400C27E9194100A36D5D /* ProfileCoordinator.swift in Sources */,
 				2BB2314D27E26664001A5FF4 /* EnterUsernameView.swift in Sources */,
+				2BC23B6D27EB698200E5F6FD /* SettingsView.swift in Sources */,
 				2BB2315A27E27C08001A5FF4 /* FollowersListViewController.swift in Sources */,
 				2BA1242327E39701006B39CF /* Follower.swift in Sources */,
 				2B4A3FFA27E8A57A00A36D5D /* GFStats.swift in Sources */,
 				2BB2310127E25960001A5FF4 /* AppDelegate.swift in Sources */,
+				2BC23B6727EB629E00E5F6FD /* SelectionCellViewModel.swift in Sources */,
+				2BC23B5C27EB5D8100E5F6FD /* SettingsCoordinator.swift in Sources */,
 				2BD1F9E827E36F00004EE9BF /* Alert.swift in Sources */,
 				2BB2313627E25E3D001A5FF4 /* SearchCoordinator.swift in Sources */,
 				2B4A400427E8C3A200A36D5D /* RepositoryCellViewModel.swift in Sources */,

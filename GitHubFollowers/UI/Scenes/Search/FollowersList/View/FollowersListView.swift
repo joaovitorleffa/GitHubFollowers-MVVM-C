@@ -22,7 +22,6 @@ class FollowersListView: UIView {
     let searchController: UISearchController = {
         let search = UISearchController()
         search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.barStyle = .black
         search.searchBar.autocapitalizationType = .none
         search.searchBar.autocorrectionType = .no
         return search

@@ -40,8 +40,8 @@ extension SettingsViewController: UITableViewDelegate {
         switch viewModel.sections[indexPath.section].options[indexPath.row] {
         case .selectionCell(let model):
             model.handler()
-        case .switchCell(let model):
-            model.handler()
+        case .switchCell:
+             break
         }
     }
 }

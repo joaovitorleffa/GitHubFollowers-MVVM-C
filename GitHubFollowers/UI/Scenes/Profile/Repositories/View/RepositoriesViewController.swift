@@ -48,7 +48,7 @@ class RepositoriesViewController: BaseViewController<RepositoriesView> {
 
 extension RepositoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        120
+        160
     }
 }
 

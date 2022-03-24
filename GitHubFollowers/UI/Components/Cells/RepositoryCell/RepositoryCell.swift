@@ -32,12 +32,12 @@ class RepositoryCell: UITableViewCell, Identifier {
     }()
     
     let nameLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.font = .systemFont(ofSize: 18, weight: .semibold)
-        lbl.textColor = colors.title()
-        lbl.numberOfLines = 1
-        lbl.adjustsFontSizeToFitWidth = true
-        return lbl
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        label.textColor = colors.title()
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
+        return label
     }()
     
     let starsHStack: UIStackView = {
@@ -49,28 +49,66 @@ class RepositoryCell: UITableViewCell, Identifier {
     }()
     
     let starsLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.font = .systemFont(ofSize: 14)
-        lbl.textColor = colors.title()
-        lbl.adjustsFontSizeToFitWidth = true
-        return lbl
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = colors.title()
+        label.adjustsFontSizeToFitWidth = true
+        return label
     }()
     
     let starsImageView: UIImageView = {
-        let img = UIImageView()
-        img.contentMode = .scaleAspectFit
-        img.image = UIImage(systemName: "star.fill")
-        img.tintColor = colors.star()
-        return img
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(systemName: "star.fill")
+        imageView.tintColor = colors.star()
+        return imageView
     }()
     
     let descriptionLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.font = .systemFont(ofSize: 14)
-        lbl.textColor = colors.title()
-        lbl.adjustsFontSizeToFitWidth = true
-        lbl.numberOfLines = 3
-        return lbl
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = colors.title()
+        label.numberOfLines = 3
+        return label
+    }()
+    
+    let footerHStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.distribution = .equalSpacing
+        stack.alignment = .center
+        return stack
+    }()
+    
+    let langHStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 4
+        stack.alignment = .center
+        stack.distribution = .fillProportionally
+        return stack
+    }()
+    
+    let langColorView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = Constants.langColorViewSize / 2
+        return view
+    }()
+    
+    let langLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = colors.title()
+        label.numberOfLines = 1
+        return label
+    }()
+    
+    let dateLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = colors.title()
+        label.numberOfLines = 1
+        return label
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -78,6 +116,17 @@ class RepositoryCell: UITableViewCell, Identifier {
         setupLayout()
         backgroundColor = colors.background()
         selectionStyle = .none
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        nameLabel.text = nil
+        starsLabel.text = nil
+        descriptionLabel.text = nil
+        langLabel.text = nil
+        dateLabel.text = nil
+        langColorView.backgroundColor = nil
     }
     
     required init?(coder: NSCoder) {
@@ -88,6 +137,9 @@ class RepositoryCell: UITableViewCell, Identifier {
         nameLabel.text = viewModel.name
         starsLabel.text = "\(viewModel.stars)"
         descriptionLabel.text = viewModel.description
+        langLabel.text = viewModel.language
+        dateLabel.text = viewModel.date
+        langColorView.backgroundColor = viewModel.langColor
     }
 }
 
@@ -103,21 +155,37 @@ extension RepositoryCell: ViewCode {
         starsHStack.addArrangedSubview(starsImageView)
         
         vStack.addArrangedSubview(descriptionLabel)
+        vStack.addArrangedSubview(footerHStack)
+        
+        footerHStack.addArrangedSubview(langHStack)
+        footerHStack.addArrangedSubview(dateLabel)
+        
+        langHStack.addArrangedSubview(langColorView)
+        langHStack.addArrangedSubview(langLabel)
     }
     
     func setupConstraints() {
         containerView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.centerX.equalToSuperview()
-            make.height.equalTo(110)
+            make.height.equalTo(140)
         }
         vStack.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(12)
-            make.leading.equalToSuperview().offset(8)
+            make.top.equalToSuperview().offset(4)
+            make.leading.equalToSuperview().offset(16)
             make.centerX.centerY.equalToSuperview()
         }
         starsImageView.snp.makeConstraints { make in
             make.size.equalTo(16)
         }
+        langColorView.snp.makeConstraints { make in
+            make.size.equalTo(15)
+        }
+    }
+}
+
+extension RepositoryCell {
+    struct Constants {
+        static let langColorViewSize: CGFloat = 15
     }
 }

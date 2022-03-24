@@ -19,6 +19,9 @@
 		2B4A400827E8F25D00A36D5D /* GFCardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4A400727E8F25D00A36D5D /* GFCardDetail.swift */; };
 		2B4A400A27E8F7AC00A36D5D /* GFDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4A400927E8F7AC00A36D5D /* GFDetails.swift */; };
 		2B4A400C27E9194100A36D5D /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4A400B27E9194100A36D5D /* ProfileCoordinator.swift */; };
+		2B51916927ECBDDA00F993E2 /* Date+format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B51916827ECBDDA00F993E2 /* Date+format.swift */; };
+		2B51916D27ECD5D600F993E2 /* LanguageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B51916C27ECD5D600F993E2 /* LanguageColor.swift */; };
+		2B51916F27ECE51400F993E2 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B51916E27ECE51400F993E2 /* UIColor+hex.swift */; };
 		2B75E9AE27E9EE9F00E3935F /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9AD27E9EE9F00E3935F /* RepositoriesViewController.swift */; };
 		2B75E9B027E9EF1D00E3935F /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9AF27E9EF1D00E3935F /* RepositoriesViewModel.swift */; };
 		2B75E9B227E9F37200E3935F /* RepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9B127E9F37200E3935F /* RepositoriesView.swift */; };
@@ -117,6 +120,9 @@
 		2B4A400727E8F25D00A36D5D /* GFCardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFCardDetail.swift; sourceTree = "<group>"; };
 		2B4A400927E8F7AC00A36D5D /* GFDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFDetails.swift; sourceTree = "<group>"; };
 		2B4A400B27E9194100A36D5D /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		2B51916827ECBDDA00F993E2 /* Date+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+format.swift"; sourceTree = "<group>"; };
+		2B51916C27ECD5D600F993E2 /* LanguageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageColor.swift; sourceTree = "<group>"; };
+		2B51916E27ECE51400F993E2 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		2B75E9AD27E9EE9F00E3935F /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		2B75E9AF27E9EF1D00E3935F /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
 		2B75E9B127E9F37200E3935F /* RepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesView.swift; sourceTree = "<group>"; };
@@ -305,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				2B4A3FFD27E8BF2100A36D5D /* Repository.swift */,
+				2B51916C27ECD5D600F993E2 /* LanguageColor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -379,6 +386,8 @@
 				2BA1243927E3C5A2006B39CF /* UIImageView+loadImage.swift */,
 				2B4A3FFB27E8B2EC00A36D5D /* Int+Format.swift */,
 				2B75E9C527EA5CE600E3935F /* String+dateFromString.swift */,
+				2B51916827ECBDDA00F993E2 /* Date+format.swift */,
+				2B51916E27ECE51400F993E2 /* UIColor+hex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1001,6 +1010,7 @@
 				2B75E9C627EA5CE600E3935F /* String+dateFromString.swift in Sources */,
 				2B75E9AE27E9EE9F00E3935F /* RepositoriesViewController.swift in Sources */,
 				2BA1243827E3B42C006B39CF /* Identifier.swift in Sources */,
+				2B51916D27ECD5D600F993E2 /* LanguageColor.swift in Sources */,
 				2B75E9B227E9F37200E3935F /* RepositoriesView.swift in Sources */,
 				2BA1242027E383C7006B39CF /* GFTextField.swift in Sources */,
 				2B4A400A27E8F7AC00A36D5D /* GFDetails.swift in Sources */,
@@ -1021,6 +1031,7 @@
 				2BD1F9EA27E36F3F004EE9BF /* GFAlertVM.swift in Sources */,
 				2BDB3EA927E50CC200341FCC /* User.swift in Sources */,
 				2BA1243527E3B241006B39CF /* FollowerCell.swift in Sources */,
+				2B51916F27ECE51400F993E2 /* UIColor+hex.swift in Sources */,
 				2BB2314527E26367001A5FF4 /* EnterUsernameViewController.swift in Sources */,
 				2BD1F9E027E36AC5004EE9BF /* R.generated.swift in Sources */,
 				2B1729C927E4C0B500DD130D /* ProfileViewController.swift in Sources */,
@@ -1040,6 +1051,7 @@
 				2BB2313627E25E3D001A5FF4 /* SearchCoordinator.swift in Sources */,
 				2B4A400427E8C3A200A36D5D /* RepositoryCellViewModel.swift in Sources */,
 				2B1729CB27E4C0DC00DD130D /* ProfileViewModel.swift in Sources */,
+				2B51916927ECBDDA00F993E2 /* Date+format.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,21 +37,8 @@ class SettingsViewModel: SettingsViewModelProtocol {
                                                         self.styleManager.updateUserInterfaceStyle(darkModeOn)
                                                   })
         
-        
-        
-        let ptBRSelection = SettingsSelectionOption(identifier: "pt-BR",
-                                                    title: strings.settingsViewOptionPtBR(),
-                                                    isActive: true,
-                                                    handler: { print("Português - Brasil") })
-        let enSelection = SettingsSelectionOption(identifier: "en",
-                                                 title: strings.settingsViewOptionEnglish(),
-                                                 isActive: false,
-                                                 handler: { print("Inglês") })
-        
         let appearanceSection = Section(title: strings.settingsViewSectionAppearance(), options: [.switchCell(model: darkModeSwitch)])
-        let languageSection = Section(title: strings.settingsViewSectionLanguage(),
-                                      options: [.selectionCell(model: ptBRSelection), .selectionCell(model: enSelection)])
         
-        sections = [appearanceSection, languageSection]
+        sections = [appearanceSection]
     }
 }

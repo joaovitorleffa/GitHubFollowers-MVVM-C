@@ -22,6 +22,7 @@
 		2B51916927ECBDDA00F993E2 /* Date+format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B51916827ECBDDA00F993E2 /* Date+format.swift */; };
 		2B51916D27ECD5D600F993E2 /* LanguageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B51916C27ECD5D600F993E2 /* LanguageColor.swift */; };
 		2B51916F27ECE51400F993E2 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B51916E27ECE51400F993E2 /* UIColor+hex.swift */; };
+		2B51917227ED022200F993E2 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B51917127ED022200F993E2 /* LoadingTableViewCell.swift */; };
 		2B75E9AE27E9EE9F00E3935F /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9AD27E9EE9F00E3935F /* RepositoriesViewController.swift */; };
 		2B75E9B027E9EF1D00E3935F /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9AF27E9EF1D00E3935F /* RepositoriesViewModel.swift */; };
 		2B75E9B227E9F37200E3935F /* RepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B75E9B127E9F37200E3935F /* RepositoriesView.swift */; };
@@ -123,6 +124,7 @@
 		2B51916827ECBDDA00F993E2 /* Date+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+format.swift"; sourceTree = "<group>"; };
 		2B51916C27ECD5D600F993E2 /* LanguageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageColor.swift; sourceTree = "<group>"; };
 		2B51916E27ECE51400F993E2 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		2B51917127ED022200F993E2 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		2B75E9AD27E9EE9F00E3935F /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		2B75E9AF27E9EF1D00E3935F /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
 		2B75E9B127E9F37200E3935F /* RepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesView.swift; sourceTree = "<group>"; };
@@ -270,6 +272,14 @@
 			path = RepositoryCell;
 			sourceTree = "<group>";
 		};
+		2B51917027ED01FD00F993E2 /* LoadingCell */ = {
+			isa = PBXGroup;
+			children = (
+				2B51917127ED022200F993E2 /* LoadingTableViewCell.swift */,
+			);
+			path = LoadingCell;
+			sourceTree = "<group>";
+		};
 		2B75E9AB27E9EE7900E3935F /* UserDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,7 +358,8 @@
 		2BA1242E27E3B068006B39CF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				2BC23B6127EB621000E5F6FD /* SettingsCells */,
+				2B51917027ED01FD00F993E2 /* LoadingCell */,
+				2BC23B6127EB621000E5F6FD /* SettingsCell */,
 				2B4A400227E8C38F00A36D5D /* RepositoryCell */,
 				2BA1243127E3B08A006B39CF /* FollowerCell */,
 			);
@@ -593,13 +604,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		2BC23B6127EB621000E5F6FD /* SettingsCells */ = {
+		2BC23B6127EB621000E5F6FD /* SettingsCell */ = {
 			isa = PBXGroup;
 			children = (
 				2BC23B6327EB622D00E5F6FD /* SwitchCell */,
 				2BC23B6227EB622300E5F6FD /* SelectionCell */,
 			);
-			path = SettingsCells;
+			path = SettingsCell;
 			sourceTree = "<group>";
 		};
 		2BC23B6227EB622300E5F6FD /* SelectionCell */ = {
@@ -1043,6 +1054,7 @@
 				2BC23B6D27EB698200E5F6FD /* SettingsView.swift in Sources */,
 				2BB2315A27E27C08001A5FF4 /* FollowersListViewController.swift in Sources */,
 				2BFA71D827EC91A800568BBE /* WeakStyleObserver.swift in Sources */,
+				2B51917227ED022200F993E2 /* LoadingTableViewCell.swift in Sources */,
 				2BA1242327E39701006B39CF /* Follower.swift in Sources */,
 				2B4A3FFA27E8A57A00A36D5D /* GFStats.swift in Sources */,
 				2BB2310127E25960001A5FF4 /* AppDelegate.swift in Sources */,

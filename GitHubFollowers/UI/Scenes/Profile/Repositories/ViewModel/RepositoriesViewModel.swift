@@ -12,9 +12,13 @@ protocol RepositoriesViewModelProtocol: AnyObject {
     var repositories: Observable<[Repository]> { get set }
     var isLoading: Observable<Bool> { get set }
     var isError: Observable<Bool> { get set }
+    func fetchRepositories()
 }
 
 class RepositoriesViewModel: RepositoriesViewModelProtocol {
+    private var currentPage = 1
+    private var loadedAll = false
+    
     var username: String
     var requester: RequesterProtocol
     
@@ -30,10 +34,18 @@ class RepositoriesViewModel: RepositoriesViewModelProtocol {
     }
     
     func fetchRepositories() {
-        requester.request(from: URLProvider(endpoint: .repositories(username: username))) { [weak self] (result: Result<[Repository], RequesterError>) in
+        if loadedAll { return }
+        isLoading.value = true
+        
+        requester.request(from: URLProvider(endpoint: .repositories(username: username, page: currentPage))) { [weak self] (result: Result<[Repository], RequesterError>) in
             switch result {
             case .success(let repositories):
-                self?.repositories.value = repositories
+                if repositories.isEmpty {
+                    self?.loadedAll = true
+                } else {
+                    self?.currentPage += 1
+                    self?.repositories.value.append(contentsOf: repositories)
+                }
                 self?.isLoading.value = false
             case .failure(let error):
                 print("[fetchRepositories] \(error.localizedDescription)")

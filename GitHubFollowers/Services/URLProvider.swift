@@ -25,7 +25,7 @@ struct URLProvider {
     enum Endpoint {
         case followers(username: String, page: Int)
         case user(username: String)
-        case repositories(username: String)
+        case repositories(username: String, page: Int)
         
         var query: String {
             switch self {
@@ -33,8 +33,8 @@ struct URLProvider {
                 return "users/\(username)/followers?per_page=100&page=\(page)"
             case .user(let username):
                 return "users/\(username)"
-            case .repositories(let username):
-                return "users/\(username)/repos"
+            case .repositories(let username, let page):
+                return "users/\(username)/repos?per_page=10&page=\(page)"
             }
         }
     }

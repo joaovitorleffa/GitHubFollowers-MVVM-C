@@ -27,7 +27,7 @@ class RepositoriesViewController: BaseViewController<RepositoriesView> {
         
         viewModel?.isLoading.bind(closure: { [weak self] isLoading in
             DispatchQueue.main.async {
-                self?.customView.showLoadingView(when: isLoading)
+                self?.customView.showLoadingView(when: isLoading && self?.repositoriesViewModels.isEmpty == true)
             }
         })
         
@@ -43,12 +43,13 @@ class RepositoriesViewController: BaseViewController<RepositoriesView> {
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
         customView.tableView.register(RepositoryCell.self, forCellReuseIdentifier: RepositoryCell.identifier)
+        customView.tableView.register(LoadingTableViewCell.self, forCellReuseIdentifier: LoadingTableViewCell.identifier)
     }
 }
 
 extension RepositoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        160
+        indexPath.row == repositoriesViewModels.count - 1 ? Constants.loadingRow : Constants.row
     }
 }
 
@@ -58,8 +59,35 @@ extension RepositoriesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == repositoriesViewModels.count - 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: LoadingTableViewCell.identifier, for: indexPath) as! LoadingTableViewCell
+            cell.activityIndicator.startAnimating()
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryCell.identifier, for: indexPath) as! RepositoryCell
         cell.setup(viewModel: repositoriesViewModels[indexPath.row])
         return cell
+    }
+}
+
+extension RepositoriesViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        let shouldRefreshPosition = customView.tableView.contentSize.height - Constants.shouldRefresh - scrollView.frame.size.height
+
+        if position > shouldRefreshPosition {
+            if viewModel?.isLoading.value == false {
+                viewModel?.fetchRepositories()
+            }
+        }
+    }
+}
+
+extension RepositoriesViewController {
+    struct Constants {
+        static let shouldRefresh: CGFloat = 100
+        static let row: CGFloat = 160
+        static let loadingRow: CGFloat = 80
     }
 }

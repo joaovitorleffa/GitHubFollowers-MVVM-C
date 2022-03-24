@@ -21,7 +21,6 @@ class RepositoriesView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = colors.background()
         setupLayout()
     }
     

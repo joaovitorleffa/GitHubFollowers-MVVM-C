@@ -15,38 +15,43 @@ protocol SettingsViewModelProtocol {
 class SettingsViewModel: SettingsViewModelProtocol {
     private(set) var sections: [Section] = []
     
+    var styleManager: UserInterfaceStyleManagerProtocol
     
-    
-    init() {
-        sections = [.init(title: strings.settingsViewSectionAppearance(),
-                          options: [
-                            .switchCell(model: .init(title: strings.settingsViewOptionDarkMode(),
-                                                     isActive: UserInterfaceStyleManager.shared.currentStyle == .dark,
-                                                     icon: UIImage(systemName: "moon.fill"),
-                                                     iconBackgroundColor: .systemPink,
-                                                     handler: {
-                                                         let current = UserInterfaceStyleManager.shared.currentStyle
-                                                     
-                                                         let darkModeOn = current == .dark ? false : true
-                                                         
-                                                         UserDefaults.standard.set(darkModeOn, forKey: UserInterfaceStyleManager.userInterfaceStyleDarkModeOn)
-                                                         UserInterfaceStyleManager.shared.updateUserInterfaceStyle(darkModeOn)
-                                                     }))
-                          ]),
-                    .init(title: strings.settingsViewSectionLanguage(), options: [
-                        .selectionCell(model: .init(identifier: "pt-BR",
+    init(styleManager: UserInterfaceStyleManagerProtocol = UserInterfaceStyleManager.shared) {
+        self.styleManager = styleManager
+        configure()
+    }
+     
+    private func configure() {
+        let darkModeSwitch = SettingsSwitchOption(title: strings.settingsViewOptionDarkMode(),
+                                                  isActive: self.styleManager.currentStyle == .dark,
+                                                  icon: UIImage(systemName: "moon.fill"),
+                                                  iconBackgroundColor: .systemPink,
+                                                  handler: { [weak self] in
+                                                        guard let self = self else { return }
+                                                        let current = self.styleManager.currentStyle
+                                                    
+                                                        let darkModeOn = current == .dark ? false : true
+                                                        
+                                                        UserDefaults.standard.set(darkModeOn, forKey: UserInterfaceStyleManager.userInterfaceStyleDarkModeOn)
+                                                        self.styleManager.updateUserInterfaceStyle(darkModeOn)
+                                                  })
+        
+        
+        
+        let ptBRSelection = SettingsSelectionOption(identifier: "pt-BR",
                                                     title: strings.settingsViewOptionPtBR(),
                                                     isActive: true,
-                                                    handler: {
-                                                        print("Português - Brasil")
-                                                    })),
-                        .selectionCell(model: .init(identifier: "en",
-                                                    title: strings.settingsViewOptionEnglish(),
-                                                    isActive: false,
-                                                    handler: {
-                                                        print("Inglês")
-                                                    }))
-                    ])
-        ]
+                                                    handler: { print("Português - Brasil") })
+        let enSelection = SettingsSelectionOption(identifier: "en",
+                                                 title: strings.settingsViewOptionEnglish(),
+                                                 isActive: false,
+                                                 handler: { print("Inglês") })
+        
+        let appearanceSection = Section(title: strings.settingsViewSectionAppearance(), options: [.switchCell(model: darkModeSwitch)])
+        let languageSection = Section(title: strings.settingsViewSectionLanguage(),
+                                      options: [.selectionCell(model: ptBRSelection), .selectionCell(model: enSelection)])
+        
+        sections = [appearanceSection, languageSection]
     }
 }

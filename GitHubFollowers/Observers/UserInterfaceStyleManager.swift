@@ -8,20 +8,21 @@
 import Foundation
 import UIKit
 
-struct WeakStyleObserver {
-    weak var observer: UserInterfaceStyleObserver?
+protocol UserInterfaceStyleManagerProtocol {
+    var currentStyle: UIUserInterfaceStyle { get }
+    mutating func addObserver(_ observer: UserInterfaceStyleObserver)
+    mutating func removeObserver(_ observer: UserInterfaceStyleObserver)
+    mutating func updateUserInterfaceStyle(_ isDarkModeOn: Bool)
 }
 
 struct UserInterfaceStyleManager {
     static let userInterfaceStyleDarkModeOn = "userInterfaceStyleDarkModeOn"
-    
-    private var observers = [ObjectIdentifier: WeakStyleObserver]()
-    
     static var shared = UserInterfaceStyleManager()
+    private var observers = [ObjectIdentifier: WeakStyleObserver]()
     private init() {}
     
     private(set) var currentStyle: UIUserInterfaceStyle =
-    UserDefaults.standard.bool(forKey: Self.userInterfaceStyleDarkModeOn) ? .dark : .light {
+        UserDefaults.standard.bool(forKey: Self.userInterfaceStyleDarkModeOn) ? .dark : .light {
         didSet {
             if currentStyle != oldValue {
                 styleDidChanged()
@@ -30,7 +31,7 @@ struct UserInterfaceStyleManager {
     }
 }
 
-extension UserInterfaceStyleManager {
+extension UserInterfaceStyleManager: UserInterfaceStyleManagerProtocol {
     mutating func addObserver(_ observer: UserInterfaceStyleObserver) {
         let id = ObjectIdentifier(observer)
         observers[id] = WeakStyleObserver(observer: observer)
@@ -59,11 +60,4 @@ private extension UserInterfaceStyleManager {
             observer.userInterfaceStyleManager(self, didChangeStyle: currentStyle)
         }
     }
-}
-
-protocol UserInterfaceStyleObserver: AnyObject {
-    // adiciona observers à UserInterfaceManager
-    func startObserving(_ userInterfaceStyleManager: inout UserInterfaceStyleManager)
-    // chamado sempre que o estilo for alterado
-    func userInterfaceStyleManager(_ manager: UserInterfaceStyleManager, didChangeStyle style: UIUserInterfaceStyle)
 }

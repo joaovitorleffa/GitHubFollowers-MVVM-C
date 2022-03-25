@@ -20,11 +20,10 @@ class ProfileViewController: BaseViewController<ProfileView> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = viewModel?.username
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     func configure() {
-        
         customView.button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
     

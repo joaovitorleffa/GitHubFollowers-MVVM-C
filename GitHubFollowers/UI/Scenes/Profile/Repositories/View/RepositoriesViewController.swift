@@ -53,7 +53,6 @@ class RepositoriesViewController: BaseViewController<RepositoriesView> {
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
         customView.tableView.register(RepositoryCell.self, forCellReuseIdentifier: RepositoryCell.identifier)
-        customView.tableView.register(LoadingTableViewCell.self, forCellReuseIdentifier: LoadingTableViewCell.identifier)
     }
 }
 

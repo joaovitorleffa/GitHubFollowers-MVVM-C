@@ -23,7 +23,7 @@ struct SettingsSwitchOption {
     var isActive: Bool
     let icon: UIImage?
     let iconBackgroundColor: UIColor?
-    let handler: (() -> Void)
+    let handler: ((Bool) -> Void)
 }
 
 struct SettingsSelectionOption {

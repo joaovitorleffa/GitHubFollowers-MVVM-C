@@ -1,5 +1,5 @@
 //
-//  SelectionTableViewCell.swift
+//  GFSelectionTableViewCell.swift
 //  GitHubFollowers
 //
 //  Created by joaovitor on 23/03/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectionTableViewCell: UITableViewCell, Identifier {
+class GFSelectionTableViewCell: UITableViewCell, Identifier {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)

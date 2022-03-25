@@ -24,8 +24,8 @@ class SettingsViewController: BaseViewController<SettingsView> {
         title = Strings.settingsViewTitle()
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
-        customView.tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
-        customView.tableView.register(SelectionTableViewCell.self, forCellReuseIdentifier: SelectionTableViewCell.identifier)
+        customView.tableView.register(GFSwitchTableViewCell.self, forCellReuseIdentifier: GFSwitchTableViewCell.identifier)
+        customView.tableView.register(GFSelectionTableViewCell.self, forCellReuseIdentifier: GFSelectionTableViewCell.identifier)
     }
 
 }
@@ -60,11 +60,11 @@ extension SettingsViewController: UITableViewDataSource {
         
         switch settingsType {
         case .switchCell(let model):
-            let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as! SwitchTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: GFSwitchTableViewCell.identifier, for: indexPath) as! GFSwitchTableViewCell
             cell.setup(with: model)
             return cell
         case .selectionCell(let model):
-            let cell = tableView.dequeueReusableCell(withIdentifier: SelectionTableViewCell.identifier, for: indexPath) as! SelectionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: GFSelectionTableViewCell.identifier, for: indexPath) as! GFSelectionTableViewCell
             cell.setup(with: model)
             return cell
         }

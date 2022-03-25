@@ -27,17 +27,15 @@ class SettingsViewModel: SettingsViewModelProtocol {
                                                   isActive: self.styleManager.currentStyle == .dark,
                                                   icon: UIImage(systemName: "moon.fill"),
                                                   iconBackgroundColor: .systemPink,
-                                                  handler: { [weak self] in
+                                                  handler: { [weak self] isOn in
                                                         guard let self = self else { return }
-                                                        let current = self.styleManager.currentStyle
-                                                    
-                                                        let darkModeOn = current == .dark ? false : true
-                                                        
-                                                        UserDefaults.standard.set(darkModeOn, forKey: UserInterfaceStyleManager.userInterfaceStyleDarkModeOn)
-                                                        self.styleManager.updateUserInterfaceStyle(darkModeOn)
+
+                                                        UserDefaults.standard.set(isOn, forKey: UserInterfaceStyleManager.userInterfaceStyleDarkModeOn)
+                                                        self.styleManager.updateUserInterfaceStyle(isOn)
                                                   })
         
-        let appearanceSection = Section(title: Strings.settingsViewSectionAppearance(), options: [.switchCell(model: darkModeSwitch)])
+        let appearanceSection = Section(title: Strings.settingsViewSectionAppearance().uppercased(),
+                                        options: [.switchCell(model: darkModeSwitch)])
         
         sections = [appearanceSection]
     }

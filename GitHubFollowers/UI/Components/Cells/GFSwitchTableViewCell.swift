@@ -1,5 +1,5 @@
 //
-//  SwitchTableViewCell.swift
+//  GFSwitchTableViewCell.swift
 //  GitHubFollowers
 //
 //  Created by joaovitor on 23/03/22.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class SwitchTableViewCell: UITableViewCell, Identifier {
-    var switchHandler: (() -> Void)?
+class GFSwitchTableViewCell: UITableViewCell, Identifier {
+    var switchHandler: ((Bool) -> Void)?
     
     let containerIconView: UIView = {
         let view = UIView()
@@ -95,7 +95,7 @@ class SwitchTableViewCell: UITableViewCell, Identifier {
         switchHandler = model.handler
     }
     
-    @objc func onDidTapSwitch() {
-        switchHandler?()
+    @objc func onDidTapSwitch(_ sender: UISwitch) {
+        switchHandler?(sender.isOn)
     }
 }

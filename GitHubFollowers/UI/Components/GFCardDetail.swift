@@ -10,19 +10,19 @@ import SnapKit
 
 class GFCardDetail: UIView {
     let imageView: UIImageView = {
-        let img = UIImageView()
-        img.tintColor = Colors.title()
-        img.contentMode = .scaleAspectFit
-        return img
+        let imageView = UIImageView()
+        imageView.tintColor = Colors.title()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     let label: UILabel = {
-        let lbl = UILabel()
-        lbl.font = .systemFont(ofSize: 14)
-        lbl.numberOfLines = 1
-        lbl.adjustsFontSizeToFitWidth = true
-        lbl.textColor = Colors.title()
-        return lbl
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
+        label.textColor = Colors.title()
+        return label
     }()
     
     override init(frame: CGRect) {

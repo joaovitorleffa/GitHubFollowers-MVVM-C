@@ -22,7 +22,7 @@ class SettingsViewModel: SettingsViewModelProtocol {
     private func configure() {
         let darkModeSwitch = SettingsSwitchOption(title: Strings.settingsViewOptionDarkMode(),
                                                   isActive: UserInterfaceStyleManager.shared.currentStyle == .dark,
-                                                  icon: UIImage(systemName: "moon.fill"),
+                                                  icon: SystemImage.moonFill,
                                                   iconBackgroundColor: .systemPink,
                                                   handler: { isOn in
             UserDefaults.standard.set(isOn, forKey: UserInterfaceStyleManager.userInterfaceStyleDarkModeOn)

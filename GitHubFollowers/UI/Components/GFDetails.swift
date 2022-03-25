@@ -52,22 +52,22 @@ class GFDetails: UIStackView {
     func setup(company: String?, location: String?, email: String?, blog: String?, twitter: String?) {
         if let company = company, !company.isEmpty {
             self.company.isHidden = false
-            self.company.setup(label: company, image: UIImage(systemName: "building.2"))
+            self.company.setup(label: company, image: SystemImage.building2)
         }
         
         if let location = location, !location.isEmpty {
             self.location.isHidden = false
-            self.location.setup(label: location, image: UIImage(systemName: "location"))
+            self.location.setup(label: location, image: SystemImage.location)
         }
         
         if let email = email, !email.isEmpty {
             self.email.isHidden = false
-            self.email.setup(label: email, image: UIImage(systemName: "envelope"))
+            self.email.setup(label: email, image: SystemImage.envelope)
         }
         
         if let blog = blog, !blog.isEmpty {
             self.blog.isHidden = false
-            self.blog.setup(label: blog, image: UIImage(systemName: "link"))
+            self.blog.setup(label: blog, image: SystemImage.link)
         }
         
         if let twitter = twitter, !twitter.isEmpty {

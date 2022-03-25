@@ -11,20 +11,20 @@ import SnapKit
 class FollowerCell: UICollectionViewCell, Identifier {
     
     let avatar: UIImageView = {
-        let img = UIImageView()
-        img.contentMode = .scaleAspectFit
-        img.layer.cornerRadius = 10
-        img.layer.masksToBounds = true
-        return img
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 10
+        imageView.layer.masksToBounds = true
+        return imageView
     }()
     
     let username: UILabel = {
-        let lbl = UILabel()
-        lbl.font = .systemFont(ofSize: 14, weight: .semibold)
-        lbl.numberOfLines = 1
-        lbl.textAlignment = .center
-        lbl.textColor = Colors.title()
-        return lbl
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14, weight: .semibold)
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.textColor = Colors.title()
+        return label
     }()
     
     override init(frame: CGRect) {

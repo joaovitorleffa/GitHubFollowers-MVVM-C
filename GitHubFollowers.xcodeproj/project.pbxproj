@@ -81,6 +81,7 @@
 		2BDB3EA727E5064B00341FCC /* FollowersListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDB3EA627E5064B00341FCC /* FollowersListViewModelTests.swift */; };
 		2BDB3EA927E50CC200341FCC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDB3EA827E50CC200341FCC /* User.swift */; };
 		2BDB3EAB27E5102500341FCC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDB3EAA27E5102500341FCC /* ProfileView.swift */; };
+		2BE6DBA427EE40C20004EB93 /* SystemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE6DBA327EE40C20004EB93 /* SystemImage.swift */; };
 		2BFA71D827EC91A800568BBE /* WeakStyleObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA71D727EC91A800568BBE /* WeakStyleObserver.swift */; };
 		2BFA71DA27EC93DB00568BBE /* UserInterfaceStyleObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA71D927EC93DB00568BBE /* UserInterfaceStyleObserver.swift */; };
 		7BB68E3CF283A1492AC45DF0 /* Pods_GitHubFollowers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E70DA411645E97AEE157B77B /* Pods_GitHubFollowers.framework */; };
@@ -187,6 +188,7 @@
 		2BDB3EA627E5064B00341FCC /* FollowersListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListViewModelTests.swift; sourceTree = "<group>"; };
 		2BDB3EA827E50CC200341FCC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2BDB3EAA27E5102500341FCC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2BE6DBA327EE40C20004EB93 /* SystemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImage.swift; sourceTree = "<group>"; };
 		2BFA71D727EC91A800568BBE /* WeakStyleObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakStyleObserver.swift; sourceTree = "<group>"; };
 		2BFA71D927EC93DB00568BBE /* UserInterfaceStyleObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInterfaceStyleObserver.swift; sourceTree = "<group>"; };
 		3D097092B5B937C066CA5B4C /* Pods-GitHubFollowers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubFollowers.debug.xcconfig"; path = "Target Support Files/Pods-GitHubFollowers/Pods-GitHubFollowers.debug.xcconfig"; sourceTree = "<group>"; };
@@ -340,8 +342,9 @@
 			children = (
 				2BA1243727E3B42C006B39CF /* Identifier.swift */,
 				2BA1242727E3A1E9006B39CF /* Observable.swift */,
-				2BB2314727E2653B001A5FF4 /* BaseViewController.swift */,
 				2BB2314927E26583001A5FF4 /* ViewCode.swift */,
+				2BB2314727E2653B001A5FF4 /* BaseViewController.swift */,
+				2BE6DBA327EE40C20004EB93 /* SystemImage.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -383,11 +386,11 @@
 		2BA1243627E3B417006B39CF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2BA1243927E3C5A2006B39CF /* UIImageView+loadImage.swift */,
 				2B4A3FFB27E8B2EC00A36D5D /* Int+Format.swift */,
 				2B75E9C527EA5CE600E3935F /* String+dateFromString.swift */,
 				2B51916827ECBDDA00F993E2 /* Date+format.swift */,
 				2B51916E27ECE51400F993E2 /* UIColor+hex.swift */,
+				2BA1243927E3C5A2006B39CF /* UIImageView+loadImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -989,6 +992,7 @@
 				2BA1243A27E3C5A2006B39CF /* UIImageView+loadImage.swift in Sources */,
 				2B4A3FFE27E8BF2100A36D5D /* Repository.swift in Sources */,
 				2BB2314A27E26583001A5FF4 /* ViewCode.swift in Sources */,
+				2BE6DBA427EE40C20004EB93 /* SystemImage.swift in Sources */,
 				2BA1243C27E3CBEE006B39CF /* CellSize.swift in Sources */,
 				2B1729C627E4B84B00DD130D /* GFLoadingView.swift in Sources */,
 				2BC23B6927EB638500E5F6FD /* GFSwitchTableViewCell.swift in Sources */,

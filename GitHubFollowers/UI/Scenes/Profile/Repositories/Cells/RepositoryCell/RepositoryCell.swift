@@ -59,7 +59,7 @@ class RepositoryCell: UITableViewCell, Identifier {
     let starsImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(systemName: "star.fill")
+        imageView.image = SystemImage.starFill
         imageView.tintColor = Colors.star()
         return imageView
     }()

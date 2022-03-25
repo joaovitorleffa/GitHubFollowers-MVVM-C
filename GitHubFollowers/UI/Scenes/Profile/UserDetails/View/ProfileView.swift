@@ -190,8 +190,6 @@ extension ProfileView: ViewCode {
             make.top.equalTo(hStack.snp.bottom).offset(24)
             make.leading.equalToSuperview().offset(16)
             make.centerX.equalToSuperview()
-            make.height.equalTo(110)
-            
         }
     
         button.snp.makeConstraints { make in

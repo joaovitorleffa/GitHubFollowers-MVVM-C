@@ -12,7 +12,7 @@ class GFErrorView: UIView {
     let titleLbl: UILabel = {
         let lbl = UILabel()
         lbl.font = .systemFont(ofSize: 24, weight: .bold)
-        lbl.textColor = colors.title()
+        lbl.textColor = Colors.title()
         lbl.numberOfLines = 0
         lbl.textAlignment = .center
         return lbl
@@ -33,7 +33,7 @@ class GFErrorView: UIView {
     }
     
     private func configure() {
-        backgroundColor = colors.background()
+        backgroundColor = Colors.background()
         addSubview(titleLbl)
     }
     

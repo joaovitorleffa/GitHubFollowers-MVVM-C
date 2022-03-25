@@ -9,22 +9,23 @@ import Foundation
 
 protocol RepositoriesViewModelProtocol: AnyObject {
     var username: String { get set }
-    var repositories: Observable<[Repository]> { get set }
-    var isLoading: Observable<Bool> { get set }
-    var isError: Observable<Bool> { get set }
+    var loadedAll: Observable<Bool> { get }
+    var repositories: Observable<[Repository]> { get }
+    var isLoading: Observable<Bool> { get }
+    var isError: Observable<Bool> { get }
     func fetchRepositories()
 }
 
 class RepositoriesViewModel: RepositoriesViewModelProtocol {
     private var currentPage = 1
-    private var loadedAll = false
     
     var username: String
     var requester: RequesterProtocol
     
-    var repositories: Observable<[Repository]> = Observable([])
-    var isError: Observable<Bool> = Observable(false)
-    var isLoading: Observable<Bool> = Observable(true)
+    private(set) var repositories: Observable<[Repository]> = Observable([])
+    private(set) var isError: Observable<Bool> = Observable(false)
+    private(set) var isLoading: Observable<Bool> = Observable(true)
+    private(set) var loadedAll: Observable<Bool> = Observable(false)
     
     init(username: String, requester: RequesterProtocol = Requester()) {
         self.username = username
@@ -34,14 +35,14 @@ class RepositoriesViewModel: RepositoriesViewModelProtocol {
     }
     
     func fetchRepositories() {
-        if loadedAll { return }
+        if loadedAll.value { return }
         isLoading.value = true
         
         requester.request(from: URLProvider(endpoint: .repositories(username: username, page: currentPage))) { [weak self] (result: Result<[Repository], RequesterError>) in
             switch result {
             case .success(let repositories):
                 if repositories.isEmpty {
-                    self?.loadedAll = true
+                    self?.loadedAll.value = true
                 } else {
                     self?.currentPage += 1
                     self?.repositories.value.append(contentsOf: repositories)

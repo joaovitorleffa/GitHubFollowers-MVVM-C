@@ -14,7 +14,7 @@ class GFStats: UIView {
         lbl.font = .systemFont(ofSize: 28, weight: .bold)
         lbl.textAlignment = .center
         lbl.numberOfLines = 1
-        lbl.textColor = colors.title()
+        lbl.textColor = Colors.title()
         return lbl
     }()
     
@@ -23,7 +23,7 @@ class GFStats: UIView {
         lbl.font = .systemFont(ofSize: 14)
         lbl.textAlignment = .center
         lbl.numberOfLines = 1
-        lbl.textColor = colors.placholder()
+        lbl.textColor = Colors.placholder()
         return lbl
     }()
     

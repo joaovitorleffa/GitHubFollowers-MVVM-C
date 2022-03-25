@@ -13,8 +13,8 @@ extension UIImageView {
         guard let url = URL(string: path) else { return }
         
         Nuke.loadImage(with: url,
-                       options: ImageLoadingOptions(placeholder: images.githubLogo(),
-                                                    failureImage: images.githubLogo()),
+                       options: ImageLoadingOptions(placeholder: Images.githubLogo(),
+                                                    failureImage: Images.githubLogo()),
                        into: self)
     }
 }

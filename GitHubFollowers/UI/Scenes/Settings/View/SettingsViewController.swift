@@ -21,7 +21,7 @@ class SettingsViewController: BaseViewController<SettingsView> {
     }
     
     func configure() {
-        title = strings.settingsViewTitle()
+        title = Strings.settingsViewTitle()
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
         customView.tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)

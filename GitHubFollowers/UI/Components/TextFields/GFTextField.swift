@@ -24,15 +24,15 @@ class GFTextField: UITextField {
     
     private func configure() {
         font = .systemFont(ofSize: 14)
-        backgroundColor = colors.textField()
-        layer.borderColor = colors.stroke()?.cgColor
+        backgroundColor = Colors.textField()
+        layer.borderColor = Colors.stroke()?.cgColor
         borderStyle = .roundedRect
         autocorrectionType = .no
         autocapitalizationType = .none
     }
     
     func setup(placeholder: String, returnKeyType: UIReturnKeyType) {
-        self.placeholder = strings.enterUsernameViewPlaceholder()
+        self.placeholder = Strings.enterUsernameViewPlaceholder()
         self.returnKeyType = .send
     }
 }

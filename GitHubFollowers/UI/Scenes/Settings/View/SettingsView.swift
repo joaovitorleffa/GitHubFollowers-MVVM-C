@@ -11,7 +11,7 @@ import SnapKit
 class SettingsView: UIView {
     let tableView: UITableView = {
         let table = UITableView()
-        table.backgroundColor = colors.background()
+        table.backgroundColor = Colors.background()
         return table
     }()
     

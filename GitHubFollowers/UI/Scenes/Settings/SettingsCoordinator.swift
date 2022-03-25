@@ -19,7 +19,7 @@ class SettingsCoordinator: Coordinator {
     func start() {
         let vc = SettingsViewController()
         vc.viewModel = SettingsViewModel()
-        vc.tabBarItem = UITabBarItem(title: strings.tabBarSettingsTitle(), image: UIImage(systemName: "gearshape.fill"), tag: 2)
+        vc.tabBarItem = UITabBarItem(title: Strings.tabBarSettingsTitle(), image: UIImage(systemName: "gearshape.fill"), tag: 2)
         navigationController.pushViewController(vc, animated: false)
     }
 }

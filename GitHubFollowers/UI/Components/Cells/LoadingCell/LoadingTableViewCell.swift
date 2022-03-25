@@ -36,6 +36,6 @@ class LoadingTableViewCell: UITableViewCell, Identifier {
     
     private func configure() {
         addSubview(activityIndicator)
-        backgroundColor = colors.background()
+        backgroundColor = Colors.background()
     }
 }

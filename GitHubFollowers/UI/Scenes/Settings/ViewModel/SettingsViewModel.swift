@@ -23,7 +23,7 @@ class SettingsViewModel: SettingsViewModelProtocol {
     }
      
     private func configure() {
-        let darkModeSwitch = SettingsSwitchOption(title: strings.settingsViewOptionDarkMode(),
+        let darkModeSwitch = SettingsSwitchOption(title: Strings.settingsViewOptionDarkMode(),
                                                   isActive: self.styleManager.currentStyle == .dark,
                                                   icon: UIImage(systemName: "moon.fill"),
                                                   iconBackgroundColor: .systemPink,
@@ -37,7 +37,7 @@ class SettingsViewModel: SettingsViewModelProtocol {
                                                         self.styleManager.updateUserInterfaceStyle(darkModeOn)
                                                   })
         
-        let appearanceSection = Section(title: strings.settingsViewSectionAppearance(), options: [.switchCell(model: darkModeSwitch)])
+        let appearanceSection = Section(title: Strings.settingsViewSectionAppearance(), options: [.switchCell(model: darkModeSwitch)])
         
         sections = [appearanceSection]
     }

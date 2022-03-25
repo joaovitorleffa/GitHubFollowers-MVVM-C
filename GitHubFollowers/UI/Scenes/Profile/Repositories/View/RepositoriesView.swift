@@ -14,7 +14,7 @@ class RepositoriesView: UIView {
     
     let tableView: UITableView = {
         let table = UITableView()
-        table.backgroundColor = colors.background()
+        table.backgroundColor = Colors.background()
         table.separatorStyle = .none
         return table
     }()

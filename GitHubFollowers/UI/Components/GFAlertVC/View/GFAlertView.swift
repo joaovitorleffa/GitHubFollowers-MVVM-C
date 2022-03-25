@@ -13,9 +13,9 @@ class GFAlertView: UIView {
     
     let containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = colors.background()
+        view.backgroundColor = Colors.background()
         view.layer.cornerRadius = 10
-        view.layer.borderColor = colors.white()?.cgColor
+        view.layer.borderColor = Colors.white()?.cgColor
         view.layer.borderWidth = 2
         return view
     }()
@@ -39,7 +39,7 @@ class GFAlertView: UIView {
     let messageLbl: UILabel = {
         let lbl = UILabel()
         lbl.font = .systemFont(ofSize: 16)
-        lbl.textColor = colors.placholder()
+        lbl.textColor = Colors.placholder()
         lbl.numberOfLines = 0
         lbl.textAlignment = .center
         return lbl

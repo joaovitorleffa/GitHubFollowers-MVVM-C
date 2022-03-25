@@ -26,7 +26,7 @@ class SwitchTableViewCell: UITableViewCell, Identifier {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
-        label.textColor = colors.title()
+        label.textColor = Colors.title()
         label.numberOfLines = 1
         return label
     }()

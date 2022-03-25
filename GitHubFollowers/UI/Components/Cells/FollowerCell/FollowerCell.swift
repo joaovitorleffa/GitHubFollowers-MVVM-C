@@ -23,7 +23,7 @@ class FollowerCell: UICollectionViewCell, Identifier {
         lbl.font = .systemFont(ofSize: 14, weight: .semibold)
         lbl.numberOfLines = 1
         lbl.textAlignment = .center
-        lbl.textColor = colors.title()
+        lbl.textColor = Colors.title()
         return lbl
     }()
     

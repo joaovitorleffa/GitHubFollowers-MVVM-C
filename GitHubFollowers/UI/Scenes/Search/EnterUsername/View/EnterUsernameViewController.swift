@@ -22,7 +22,7 @@ class EnterUsernameViewController: BaseViewController<EnterUsernameView> {
     }
     
     func setupNavigationController() {
-        title = strings.enterUsernameViewBarTitle()
+        title = Strings.enterUsernameViewBarTitle()
     }
     
     func configure() {

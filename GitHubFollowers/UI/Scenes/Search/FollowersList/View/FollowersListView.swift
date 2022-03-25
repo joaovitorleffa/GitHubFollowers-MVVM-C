@@ -10,11 +10,11 @@ import SnapKit
 
 class FollowersListView: UIView {
     let loadingView = GFLoadingView()
-    let errorView = GFErrorView(title: strings.errorViewFollowersTitle())
+    let errorView = GFErrorView(title: Strings.errorViewFollowersTitle())
     
     lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: bounds, collectionViewLayout: UICollectionViewFlowLayout())
-        collection.backgroundColor = colors.background()
+        collection.backgroundColor = Colors.background()
         collection.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         return collection
     }()
@@ -40,7 +40,7 @@ class FollowersListView: UIView {
     private func configure() {
         loadingView.isHidden = true
         errorView.isHidden = true
-        backgroundColor = colors.background()
+        backgroundColor = Colors.background()
     }
     
     func showLoadingView(when show: Bool) {

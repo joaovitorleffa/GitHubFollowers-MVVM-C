@@ -7,6 +7,6 @@
 
 import Foundation
 
-typealias strings = R.string.localizable
-typealias images = R.image
-typealias colors = R.color
+typealias Strings = R.string.localizable
+typealias Images = R.image
+typealias Colors = R.color

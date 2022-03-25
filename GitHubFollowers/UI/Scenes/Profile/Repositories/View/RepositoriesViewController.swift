@@ -10,6 +10,7 @@ import UIKit
 class RepositoriesViewController: BaseViewController<RepositoriesView> {
     var viewModel: RepositoriesViewModelProtocol?
     var repositoriesViewModels: [RepositoryCellViewModel] = []
+    var showLoading = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +37,14 @@ class RepositoriesViewController: BaseViewController<RepositoriesView> {
                 self?.customView.showErrorView(when: isError)
             }
         })
+        
+        viewModel?.loadedAll.bind(closure: { [weak self] loadedAll in
+            self?.showLoading = !loadedAll
+        })
     }
     
     func configure() {
-        title = strings.repositoriesTitle()
+        title = Strings.repositoriesTitle()
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
         customView.tableView.register(RepositoryCell.self, forCellReuseIdentifier: RepositoryCell.identifier)
@@ -49,7 +54,9 @@ class RepositoriesViewController: BaseViewController<RepositoriesView> {
 
 extension RepositoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        indexPath.row == repositoriesViewModels.count - 1 ? Constants.loadingRow : Constants.row
+        indexPath.row == repositoriesViewModels.count - 1  && showLoading
+            ? Constants.loadingRow
+            : Constants.row
     }
 }
 
@@ -59,7 +66,7 @@ extension RepositoriesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == repositoriesViewModels.count - 1 {
+        if indexPath.row == repositoriesViewModels.count - 1 && showLoading {
             let cell = tableView.dequeueReusableCell(withIdentifier: LoadingTableViewCell.identifier, for: indexPath) as! LoadingTableViewCell
             cell.activityIndicator.startAnimating()
             return cell

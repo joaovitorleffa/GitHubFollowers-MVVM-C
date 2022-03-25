@@ -15,17 +15,21 @@ struct URLProvider {
     var url: URL?
     
     init(endpoint: Endpoint) {
-        url = Self.buildURL(with: endpoint)
+        url = endpoint.url
     }
     
-    static func buildURL(with endpoint: Endpoint) -> URL? {
-        URL(string: Constants.baseURL + endpoint.query)
-    }
+//    static func buildURL(with endpoint: Endpoint) -> URL? {
+//        URL(string: Constants.baseURL + endpoint.query)
+//    }
     
     enum Endpoint {
         case followers(username: String, page: Int)
         case user(username: String)
         case repositories(username: String, page: Int)
+        
+        var url: URL? {
+            URL(string: Constants.baseURL + self.query)
+        }
         
         var query: String {
             switch self {
@@ -34,7 +38,7 @@ struct URLProvider {
             case .user(let username):
                 return "users/\(username)"
             case .repositories(let username, let page):
-                return "users/\(username)/repos?per_page=10&page=\(page)"
+                return "users/\(username)/repos?per_page=20&page=\(page)"
             }
         }
     }

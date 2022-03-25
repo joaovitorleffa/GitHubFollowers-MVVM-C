@@ -53,9 +53,9 @@ extension SearchCoordinator: SearchCoordinatorDelegate {
             return
         }
         
-        let viewModel = GFAlertVM(model: Alert(title: strings.errorUsernameTitle(),
-                                               message: strings.errorUsernameMessage(),
-                                               buttonTitle: strings.errorUsernameBtnTitle()))
+        let viewModel = GFAlertVM(model: Alert(title: Strings.errorUsernameTitle(),
+                                               message: Strings.errorUsernameMessage(),
+                                               buttonTitle: Strings.errorUsernameBtnTitle()))
         let vc = GFAlertVC()
         vc.viewModel = viewModel
         vc.modalPresentationStyle = .overFullScreen

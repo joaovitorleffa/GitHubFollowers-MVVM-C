@@ -26,7 +26,7 @@ class GFLoadingView: UIView {
     }()
     
     private func configure() {
-        backgroundColor = colors.background()?.withAlphaComponent(0.55)
+        backgroundColor = Colors.background()?.withAlphaComponent(0.55)
         
         addSubview(activityIndicator)
         activityIndicator.snp.makeConstraints { make in

@@ -72,7 +72,7 @@ class GFDetails: UIStackView {
         
         if let twitter = twitter, !twitter.isEmpty {
             self.twitter.isHidden = false
-            self.twitter.setup(label: twitter, image: images.twitterLogo())
+            self.twitter.setup(label: twitter, image: Images.twitterLogo())
         }
     }
 }

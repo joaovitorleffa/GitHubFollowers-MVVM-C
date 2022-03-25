@@ -12,7 +12,7 @@ class RepositoryCell: UITableViewCell, Identifier {
     let containerView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 0
-        view.backgroundColor = colors.textField()
+        view.backgroundColor = Colors.textField()
         return view
     }()
     
@@ -34,7 +34,7 @@ class RepositoryCell: UITableViewCell, Identifier {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .semibold)
-        label.textColor = colors.title()
+        label.textColor = Colors.title()
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -51,7 +51,7 @@ class RepositoryCell: UITableViewCell, Identifier {
     let starsLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
-        label.textColor = colors.title()
+        label.textColor = Colors.title()
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
@@ -60,14 +60,14 @@ class RepositoryCell: UITableViewCell, Identifier {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(systemName: "star.fill")
-        imageView.tintColor = colors.star()
+        imageView.tintColor = Colors.star()
         return imageView
     }()
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
-        label.textColor = colors.title()
+        label.textColor = Colors.title()
         label.numberOfLines = 3
         return label
     }()
@@ -98,7 +98,7 @@ class RepositoryCell: UITableViewCell, Identifier {
     let langLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
-        label.textColor = colors.title()
+        label.textColor = Colors.title()
         label.numberOfLines = 1
         return label
     }()
@@ -106,7 +106,7 @@ class RepositoryCell: UITableViewCell, Identifier {
     let dateLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
-        label.textColor = colors.title()
+        label.textColor = Colors.title()
         label.numberOfLines = 1
         return label
     }()
@@ -114,7 +114,7 @@ class RepositoryCell: UITableViewCell, Identifier {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
-        backgroundColor = colors.background()
+        backgroundColor = Colors.background()
         selectionStyle = .none
     }
     

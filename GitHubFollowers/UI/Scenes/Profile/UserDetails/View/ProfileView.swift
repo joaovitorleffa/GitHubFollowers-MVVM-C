@@ -43,46 +43,46 @@ class ProfileView: UIView {
     let followers = GFStats()
     let following = GFStats()
     let details = GFDetails()
-    let button = GFButton(title: strings.profileViewBtnTitle(), color: colors.green())
+    let button = GFButton(title: Strings.profileViewBtnTitle(), color: Colors.green())
     let loadingView = GFLoadingView()
     let errorView = GFErrorView()
    
     let avatarImageView: UIImageView = {
-        let img = UIImageView()
-        img.contentMode = .scaleAspectFit
-        img.layer.cornerRadius = 50
-        img.layer.masksToBounds = true
-        img.layer.borderWidth = 4
-        img.layer.borderColor = colors.title()?.cgColor
-        return img
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 50
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 4
+        imageView.layer.borderColor = Colors.title()?.cgColor
+        return imageView
     }()
     
     let nameLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.font = .systemFont(ofSize: 18, weight: .semibold)
-        lbl.textAlignment = .center
-        lbl.numberOfLines = 1
-        lbl.adjustsFontSizeToFitWidth = true
-        lbl.textColor = colors.title()
-        return lbl
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
+        label.textColor = Colors.title()
+        return label
     }()
     
     let usernameLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.font = .systemFont(ofSize: 14)
-        lbl.textAlignment = .center
-        lbl.numberOfLines = 1
-        lbl.adjustsFontSizeToFitWidth = true
-        lbl.textColor = colors.placholder()
-        return lbl
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
+        label.textColor = Colors.placholder()
+        return label
     }()
     
     let bioLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.font = .systemFont(ofSize: 14)
-        lbl.textColor = colors.title()
-        lbl.numberOfLines = 0
-        return lbl
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = Colors.title()
+        label.numberOfLines = 0
+        return label
     }()
     
     let hStack: UIStackView = {
@@ -103,7 +103,7 @@ class ProfileView: UIView {
     }
     
     private func configure() {
-        backgroundColor = colors.background()
+        backgroundColor = Colors.background()
     }
     
     func setup(_ descriptor: ProfileViewDescriptor) {
@@ -113,9 +113,9 @@ class ProfileView: UIView {
         usernameLabel.text = descriptor.username
         avatarImageView.loadImage(from: descriptor.avatarURL)
         
-        repositories.setup(quantity: descriptor.repositories, label: strings.profileViewRepositories())
-        followers.setup(quantity: descriptor.followers, label: strings.profileViewFollowers())
-        following.setup(quantity: descriptor.following, label: strings.profileViewFollowing())
+        repositories.setup(quantity: descriptor.repositories, label: Strings.profileViewRepositories())
+        followers.setup(quantity: descriptor.followers, label: Strings.profileViewFollowers())
+        following.setup(quantity: descriptor.following, label: Strings.profileViewFollowing())
         
         details.setup(company: descriptor.company,
                            location: descriptor.location,

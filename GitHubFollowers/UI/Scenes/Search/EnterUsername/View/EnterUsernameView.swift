@@ -9,22 +9,22 @@ import UIKit
 import SnapKit
 
 class EnterUsernameView: UIView {
-    let button = GFButton(title: strings.enterUsernameViewBtnTitle(), color: colors.green())
-    let textField = GFTextField(placeholder: strings.enterUsernameViewPlaceholder(),
+    let button = GFButton(title: Strings.enterUsernameViewBtnTitle(), color: Colors.green())
+    let textField = GFTextField(placeholder: Strings.enterUsernameViewPlaceholder(),
                                returnKeyType: .send)
     
     let imageView: UIImageView = {
-        let img = UIImageView()
-        img.image = images.githubLogo()
-        return img
+        let imageView = UIImageView()
+        imageView.image = Images.githubLogo()
+        return imageView
     }()
     
     let title: UILabel = {
-        let lbl = UILabel()
-        lbl.textColor = colors.title()
-        lbl.text = strings.enterUsernameViewTitle()
-        lbl.font = .boldSystemFont(ofSize: 24)
-        return lbl
+        let label = UILabel()
+        label.textColor = Colors.title()
+        label.text = Strings.enterUsernameViewTitle()
+        label.font = .boldSystemFont(ofSize: 24)
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -38,7 +38,7 @@ class EnterUsernameView: UIView {
     }
     
     private func configure() {
-        backgroundColor = colors.background()
+        backgroundColor = Colors.background()
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         addGestureRecognizer(tap)
     }

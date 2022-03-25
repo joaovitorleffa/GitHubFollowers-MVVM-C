@@ -11,7 +11,7 @@ import SnapKit
 class GFCardDetail: UIView {
     let imageView: UIImageView = {
         let img = UIImageView()
-        img.tintColor = colors.title()
+        img.tintColor = Colors.title()
         img.contentMode = .scaleAspectFit
         return img
     }()
@@ -21,7 +21,7 @@ class GFCardDetail: UIView {
         lbl.font = .systemFont(ofSize: 14)
         lbl.numberOfLines = 1
         lbl.adjustsFontSizeToFitWidth = true
-        lbl.textColor = colors.title()
+        lbl.textColor = Colors.title()
         return lbl
     }()
     
@@ -53,6 +53,6 @@ class GFCardDetail: UIView {
     
     func setup(label: String, image: UIImage?) {
         self.label.text = label
-        self.imageView.image = image ?? images.githubLogo()
+        self.imageView.image = image ?? Images.githubLogo()
     }
 }

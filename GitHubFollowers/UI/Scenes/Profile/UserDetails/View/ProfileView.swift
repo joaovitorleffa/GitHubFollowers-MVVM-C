@@ -53,7 +53,7 @@ class ProfileView: UIView {
         imageView.layer.cornerRadius = 50
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 4
-        imageView.layer.borderColor = Colors.title()?.cgColor
+        
         return imageView
     }()
     
@@ -96,6 +96,11 @@ class ProfileView: UIView {
         super.init(frame: frame)
         configure()
         setupLayout()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        avatarImageView.layer.borderColor = Colors.title()?.cgColor
     }
     
     required init?(coder: NSCoder) {

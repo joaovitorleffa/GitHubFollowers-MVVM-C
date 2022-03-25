@@ -16,6 +16,7 @@ class RepositoriesViewController: BaseViewController<RepositoriesView> {
         super.viewDidLoad()
         setupBinds()
         configure()
+        startObserving(&UserInterfaceStyleManager.shared)
     }
     
     func setupBinds() {

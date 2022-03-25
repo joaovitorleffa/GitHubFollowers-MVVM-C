@@ -12,13 +12,15 @@ protocol UserInterfaceStyleManagerProtocol {
     var currentStyle: UIUserInterfaceStyle { get }
     mutating func addObserver(_ observer: UserInterfaceStyleObserver)
     mutating func removeObserver(_ observer: UserInterfaceStyleObserver)
-    mutating func updateUserInterfaceStyle(_ isDarkModeOn: Bool)
+    mutating func updateUserInterfaceStyle(_ isDarkMode: Bool)
 }
 
 struct UserInterfaceStyleManager {
     static let userInterfaceStyleDarkModeOn = "userInterfaceStyleDarkModeOn"
+    
     static var shared = UserInterfaceStyleManager()
     private var observers = [ObjectIdentifier: WeakStyleObserver]()
+    
     private init() {}
     
     private(set) var currentStyle: UIUserInterfaceStyle =

@@ -15,24 +15,19 @@ protocol SettingsViewModelProtocol {
 class SettingsViewModel: SettingsViewModelProtocol {
     private(set) var sections: [Section] = []
     
-    var styleManager: UserInterfaceStyleManagerProtocol
-    
-    init(styleManager: UserInterfaceStyleManagerProtocol = UserInterfaceStyleManager.shared) {
-        self.styleManager = styleManager
+    init() {
         configure()
     }
      
     private func configure() {
         let darkModeSwitch = SettingsSwitchOption(title: Strings.settingsViewOptionDarkMode(),
-                                                  isActive: self.styleManager.currentStyle == .dark,
+                                                  isActive: UserInterfaceStyleManager.shared.currentStyle == .dark,
                                                   icon: UIImage(systemName: "moon.fill"),
                                                   iconBackgroundColor: .systemPink,
-                                                  handler: { [weak self] isOn in
-                                                        guard let self = self else { return }
-
-                                                        UserDefaults.standard.set(isOn, forKey: UserInterfaceStyleManager.userInterfaceStyleDarkModeOn)
-                                                        self.styleManager.updateUserInterfaceStyle(isOn)
-                                                  })
+                                                  handler: { isOn in
+            UserDefaults.standard.set(isOn, forKey: UserInterfaceStyleManager.userInterfaceStyleDarkModeOn)
+            UserInterfaceStyleManager.shared.updateUserInterfaceStyle(isOn)
+        })
         
         let appearanceSection = Section(title: Strings.settingsViewSectionAppearance().uppercased(),
                                         options: [.switchCell(model: darkModeSwitch)])

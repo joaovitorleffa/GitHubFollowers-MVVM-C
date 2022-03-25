@@ -17,6 +17,7 @@ class FollowersListViewController: BaseViewController<FollowersListView> {
         setupNavigationController()
         setupCollectionView()
         setupBinds()
+        startObserving(&UserInterfaceStyleManager.shared)
     }
     
     override func viewWillAppear(_ animated: Bool) {

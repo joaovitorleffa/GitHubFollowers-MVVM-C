@@ -14,6 +14,7 @@ class ProfileViewController: BaseViewController<ProfileView> {
         super.viewDidLoad()
         setupBinds()
         configure()
+        startObserving(&UserInterfaceStyleManager.shared)
     }
     
     override func viewWillAppear(_ animated: Bool) {

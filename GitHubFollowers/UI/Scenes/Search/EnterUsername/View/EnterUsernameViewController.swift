@@ -14,6 +14,7 @@ class EnterUsernameViewController: BaseViewController<EnterUsernameView> {
         super.viewDidLoad()
         setupNavigationController()
         configure()
+        startObserving(&UserInterfaceStyleManager.shared)
     }
     
     override func viewWillAppear(_ animated: Bool) {

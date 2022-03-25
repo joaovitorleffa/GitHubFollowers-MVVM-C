@@ -7,10 +7,17 @@
 
 import UIKit
 
+class UINavigationControllerTheme: UINavigationController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        startObserving(&UserInterfaceStyleManager.shared)
+    }
+}
+
 class MainTabBarController: UITabBarController {
-    let search = SearchCoordinator(navigationController: UINavigationController())
+    let search = SearchCoordinator(navigationController: UINavigationControllerTheme())
     let favorites = FavoritesCoordinator(navigationController: UINavigationController())
-    let settings = SettingsCoordinator(navigationController: UINavigationController())
+    let settings = SettingsCoordinator(navigationController: UINavigationControllerTheme())
     
     override func viewDidLoad() {
         super.viewDidLoad()

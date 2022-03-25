@@ -13,6 +13,7 @@ class SettingsViewController: BaseViewController<SettingsView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        startObserving(&UserInterfaceStyleManager.shared)
     }
     
     override func viewWillAppear(_ animated: Bool) {

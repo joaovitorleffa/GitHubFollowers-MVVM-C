@@ -10,7 +10,7 @@ import UIKit
 @testable import GitHubFollowers
 
 class SearchCoordinatorSpy: Coordinator {
-    var startCaleed: Bool = false
+    var startCalled: Bool = false
     var findFollowersCalledWith: String?
     var goToProfileCalledWith: String?
     
@@ -22,7 +22,7 @@ class SearchCoordinatorSpy: Coordinator {
     }
     
     func start() {
-        startCaleed = true
+        startCalled = true
     }
 }
 

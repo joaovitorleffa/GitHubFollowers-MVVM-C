@@ -28,13 +28,18 @@ class RepositoriesViewController: BaseViewController<RepositoriesView> {
         
         viewModel?.isLoading.bind(closure: { [weak self] isLoading in
             DispatchQueue.main.async {
-                self?.customView.showLoadingView(when: isLoading && self?.repositoriesViewModels.isEmpty == true)
+                guard let self = self else { return }
+                self.customView.showLoadingView(when: isLoading && self.repositoriesViewModels.isEmpty)
+                self.customView.tableView.tableFooterView = isLoading && !self.repositoriesViewModels.isEmpty
+                    ? GFLoadingView()
+                    : nil
             }
         })
         
         viewModel?.isError.bind(closure: { [weak self] isError in
             DispatchQueue.main.async {
                 self?.customView.showErrorView(when: isError)
+                
             }
         })
         
@@ -54,9 +59,7 @@ class RepositoriesViewController: BaseViewController<RepositoriesView> {
 
 extension RepositoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        indexPath.row == repositoriesViewModels.count - 1  && showLoading
-            ? Constants.loadingRow
-            : Constants.row
+       Constants.row
     }
 }
 
@@ -66,12 +69,6 @@ extension RepositoriesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == repositoriesViewModels.count - 1 && showLoading {
-            let cell = tableView.dequeueReusableCell(withIdentifier: LoadingTableViewCell.identifier, for: indexPath) as! LoadingTableViewCell
-            cell.activityIndicator.startAnimating()
-            return cell
-        }
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryCell.identifier, for: indexPath) as! RepositoryCell
         cell.setup(viewModel: repositoriesViewModels[indexPath.row])
         return cell
@@ -95,6 +92,5 @@ extension RepositoriesViewController {
     struct Constants {
         static let shouldRefresh: CGFloat = 100
         static let row: CGFloat = 160
-        static let loadingRow: CGFloat = 80
     }
 }

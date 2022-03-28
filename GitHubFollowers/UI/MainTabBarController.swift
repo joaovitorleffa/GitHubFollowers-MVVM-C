@@ -11,6 +11,7 @@ class UINavigationControllerTheme: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         startObserving(&UserInterfaceStyleManager.shared)
+        UINavigationBar.appearance().tintColor = Colors.green()
     }
 }
 
@@ -27,6 +28,7 @@ class MainTabBarController: UITabBarController {
         favorites.start()
         settings.start()
         
+        UITabBar.appearance().tintColor = Colors.green()
         viewControllers = [search.navigationController, favorites.navigationController, settings.navigationController]
     }
 }

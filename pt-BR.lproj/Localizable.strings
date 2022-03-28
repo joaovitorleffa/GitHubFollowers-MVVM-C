@@ -13,6 +13,10 @@
 "EnterUsernameView.placeholder" = "Informe um nome de usário";
 "EnterUsernameView.btnTitle" = "Buscar seguidores";
 
+"FollowersListView.addToFavorites.success.message" = "Você adicionou com sucesso este usuário aos seus favoritos. 🎉";
+"FollowersListView.addToFavorites.error.message" = "Ocorreu um erro ao adicionar o usuário aos favoritos. 😢";
+"FollowersListView.addToFavorites.alreadyExists.message" = "%@ já está salvo nos favoritos. 😉";
+
 "ProfileView.btnTitle" = "Buscar repositórios";
 "ProfileView.repositories" = "repositórios";
 "ProfileView.followers" = "seguidores";
@@ -27,8 +31,19 @@
 "SettingsView.option.ptBR" = "Português - Brasil";
 "SettingsView.option.english" = "Inglês";
 
+"FavoritesListView.title" = "Favoritos";
+"FavoritesListView.empty" = "Ainda não há nenhum\nperfil salvo 🧐";
+"FavoritesListView.error" = "Aconteceu algum erro ao buscar a lista de favoritos 😢";
+
 "Error.username.title" = "Informe um nome de usuário";
 "Error.username.message" = "Por favor, informe um nome de usuário. Precisamos saber por quem procurar 😄";
 "Error.username.btnTitle" = "OK";
 
 "ErrorView.followers.title" = "Este usuário não tem nenhum seguidor 😔";
+
+"Common.success" = "Sucesso";
+"Common.error" = "Error";
+"Common.ok" = "OK";
+"Common.nice" = "Boa";
+"Common.hey" = "Hei";
+"Common.user" = "User";

@@ -17,7 +17,8 @@ class FavoritesCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = FavoritesViewController()
+        let vc = FavoritesListViewController()
+        vc.viewModel = FavoritesListViewModel()
         vc.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         navigationController.pushViewController(vc, animated: false)
     }

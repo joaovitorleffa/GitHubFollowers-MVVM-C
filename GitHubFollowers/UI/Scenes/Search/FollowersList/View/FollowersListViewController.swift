@@ -33,6 +33,9 @@ class FollowersListViewController: BaseViewController<FollowersListView> {
         navigationItem.searchController = customView.searchController
         customView.searchController.searchBar.delegate = self
         customView.searchController.searchResultsUpdater = self
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDidTap))
+        navigationItem.rightBarButtonItem = addButton
     }
     
     func setupCollectionView() {
@@ -64,6 +67,10 @@ class FollowersListViewController: BaseViewController<FollowersListView> {
                 self?.customView.showErrorView(when: isError)
             }
         })
+    }
+    
+    @objc func addDidTap() {
+        viewModel?.addUserToFavorites()
     }
 }
 
@@ -128,7 +135,7 @@ extension FollowersListViewController: UISearchBarDelegate {
     }
 }
 
-// MARK: Constants
+// MARK: - Constants
 extension FollowersListViewController {
     struct Constants {
         static let cellsPerRow: CGFloat = 3

@@ -8,36 +8,42 @@
 import Foundation
 
 protocol FollowersListViewModelProtocol: AnyObject {
-    var username: String { get set }
+    var username: String { get }
     var coordinator: SearchCoordinatorDelegate? { get set }
     
     var isError: Observable<Bool> { get }
     var isLoading: Observable<Bool> { get }
-    var followers: Observable<[Follower]> { get set }
+    var followers: Observable<[Follower]> { get }
     
     func reloadData()
     func fetchFollowers()
     func filter(by text: String)
+    func addUserToFavorites()
 }
 
 class FollowersListViewModel: FollowersListViewModelProtocol {
     var username: String
     var requester: RequesterProtocol
+    var favoriteManager: FavoriteManagerProtocol
     weak var coordinator: SearchCoordinatorDelegate?
     
-    var isError: Observable<Bool> = Observable(false)
-    var isLoading: Observable<Bool> = Observable(true)
-    var followers: Observable<[Follower]> = Observable([])
+    private(set) var isError: Observable<Bool> = Observable(false)
+    private(set) var isLoading: Observable<Bool> = Observable(true)
+    private(set) var followers: Observable<[Follower]> = Observable([])
     
     private var currentPage = 1
     private var loadedAll: Bool = false
     private var allFollowers: [Follower] = []
     private var filteredFollowers: [Follower] = []
     
-    init(username: String, coordinator: SearchCoordinatorDelegate, requester: RequesterProtocol = Requester()) {
+    init(username: String,
+         coordinator: SearchCoordinatorDelegate,
+         requester: RequesterProtocol = Requester(),
+         favoriteManager: FavoriteManagerProtocol = FavoriteManager()) {
         self.username = username
         self.requester = requester
         self.coordinator = coordinator
+        self.favoriteManager = favoriteManager
         
         fetchFollowers()
     }
@@ -58,12 +64,11 @@ class FollowersListViewModel: FollowersListViewModelProtocol {
                     self.followers.value = self.allFollowers
                     self.currentPage += 1
                 }
-    
                 self.isLoading.value = false
             case .failure(let error):
+                print("[fetchFollowers] \(error.localizedDescription)")
                 self?.isLoading.value = false
                 self?.isError.value = true
-                print(error)
             }
         }
     }
@@ -74,5 +79,48 @@ class FollowersListViewModel: FollowersListViewModelProtocol {
     
     func reloadData() {
         followers.value = allFollowers
+    }
+    
+    func addUserToFavorites() {
+        requester.request(from: URLProvider(endpoint: .user(username: username))) { [weak self] (result: Result<User, RequesterError>) in
+            switch result {
+            case .success(let user):
+                self?.handleAddUserToFavorites(user)
+            case .failure(let error):
+                print("[addToFavorites] \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    private func handleAddUserToFavorites(_ user: User) {
+        let favoriteToSave = FavoriteToSave(id: user.id,
+                                            name: user.name ?? "",
+                                            username: user.login,
+                                            avatarURL: user.avatarURL)
+        
+        favoriteManager.saveFavorite(favoriteToSave) { (result: Result<Favorite, CoreDataError>) in
+            switch result {
+            case .success:
+                DispatchQueue.main.async {
+                    self.coordinator?.showAlert(title: Strings.commonSuccess(),
+                                                message: Strings.followersListViewAddToFavoritesSuccessMessage(),
+                                                buttonTitle: Strings.commonNice())
+                }
+            case .failure(let error):
+                var title = Strings.commonError()
+                var message = Strings.followersListViewAddToFavoritesErrorMessage()
+                
+                switch error {
+                case .alreadyExists:
+                    title = Strings.commonHey()
+                    message = Strings.followersListViewAddToFavoritesAlreadyExistsMessage(user.name ?? Strings.commonUser())
+                default: break
+                }
+                
+                DispatchQueue.main.async {
+                    self.coordinator?.showAlert(title: title, message: message, buttonTitle: Strings.commonOk())
+                }
+            }
+        }
     }
 }

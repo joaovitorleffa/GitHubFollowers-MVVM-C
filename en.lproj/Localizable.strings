@@ -13,6 +13,10 @@
 "EnterUsernameView.placeholder" = "Enter a username";
 "EnterUsernameView.btnTitle" = "Get followers";
 
+"FollowersListView.addToFavorites.success.message" = "You have successfully added this user to your favorites. 🎉";
+"FollowersListView.addToFavorites.error.message" = "There was an error adding the user to favorites. 😢";
+"FollowersListView.addToFavorites.alreadyExists.message" = "%@ is already saved in favorites. 😉";
+
 "ProfileView.btnTitle" = "Get repositories";
 "ProfileView.repositories" = "repositories";
 "ProfileView.followers" = "followers";
@@ -27,8 +31,19 @@
 "SettingsView.option.ptBR" = "Portuguese - Brazil";
 "SettingsView.option.english" = "English";
 
+"FavoritesListView.title" = "Favorites";
+"FavoritesListView.empty" = "There are no saved\nprofiles yet 🧐";
+"FavoritesListView.error" = "There was an error fetching the favorites list 😢";
+
 "Error.username.title" = "Enter a username";
 "Error.username.message" = "Please enter a username. We need to know who to look for 😄";
 "Error.username.btnTitle" = "OK";
 
 "ErrorView.followers.title" = "This user doens't have any followers 😔";
+
+"Common.success" = "Sucesso";
+"Common.error" = "Error";
+"Common.ok" = "OK";
+"Common.nice" = "Nice";
+"Common.hey" = "Hey";
+"Common.user" = "Usuário";

@@ -11,6 +11,7 @@ import UIKit
 protocol SearchCoordinatorDelegate: AnyObject {
     func findFollowers(by text: String)
     func goToProfile(by username: String)
+    func showAlert(title: String, message: String, buttonTitle: String)
 }
 
 class SearchCoordinator: NSObject, Coordinator {
@@ -67,6 +68,14 @@ extension SearchCoordinator: SearchCoordinatorDelegate {
         let coordinator = ProfileCoordinator(username: username, navigationController: navigationController)
         childCoordinators.append(coordinator)
         coordinator.start()
+    }
+    
+    func showAlert(title: String, message: String, buttonTitle: String) {
+        let vc = GFAlertVC()
+        vc.viewModel = GFAlertVM(model: Alert(title: title, message: message, buttonTitle: buttonTitle))
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        navigationController.present(vc, animated: true)
     }
 }
 

@@ -67,9 +67,9 @@ class FollowersListViewController: BaseViewController<FollowersListView> {
     }
 }
 
-// MARK: - CollectionView data source
+// MARK: - Data source
 extension FollowersListViewController {
-    func configureDataSource() {
+    private func configureDataSource() {
         self.dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: customView.collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.identifier, for: indexPath) as! FollowerCell
             cell.setup(viewModel: self.followerViewModels[indexPath.row])
@@ -77,7 +77,7 @@ extension FollowersListViewController {
         })
     }
 
-    func updateUI() {
+    private func updateUI() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
         snapshot.appendItems(viewModel?.followers.value ?? [], toSection: .main)
@@ -88,7 +88,7 @@ extension FollowersListViewController {
     }
 }
 
-// MARK: - CollectionView delegate
+// MARK: - Delegate
 extension FollowersListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CellSize.getSize(for: Constants.cellsPerRow,
@@ -102,16 +102,14 @@ extension FollowersListViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - ScrollView delegate
+// MARK: - ScrollView Delegate
 extension FollowersListViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let position = scrollView.contentOffset.y
-        let shouldRefreshPosition = customView.collectionView.contentSize.height - Constants.shouldRefresh - scrollView.frame.size.height
-        
-        if position > shouldRefreshPosition {
-            if viewModel?.isLoading.value == false {
-                viewModel?.fetchFollowers()
-            }
+        let currentOffsetY = scrollView.contentOffset.y
+        let shouldRefreshPosition = customView.collectionView.contentSize.height - Constants.offsetYEndOfList - scrollView.frame.size.height
+    
+        if currentOffsetY > shouldRefreshPosition && viewModel?.isLoading.value == false {
+            viewModel?.fetchFollowers()
         }
     }
 }
@@ -130,11 +128,12 @@ extension FollowersListViewController: UISearchBarDelegate {
     }
 }
 
+// MARK: Constants
 extension FollowersListViewController {
     struct Constants {
         static let cellsPerRow: CGFloat = 3
         static let cellSpacing: CGFloat = 10
-        static let shouldRefresh: CGFloat = 100
+        static let offsetYEndOfList: CGFloat = 100
     }
 }
 

@@ -77,20 +77,18 @@ extension RepositoriesViewController: UITableViewDataSource {
 
 extension RepositoriesViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let position = scrollView.contentOffset.y
-        let shouldRefreshPosition = customView.tableView.contentSize.height - Constants.shouldRefresh - scrollView.frame.size.height
+        let currentOffsetY = scrollView.contentOffset.y
+        let shouldRefreshPosition = customView.tableView.contentSize.height - Constants.offsetYEndOfList - scrollView.frame.size.height
 
-        if position > shouldRefreshPosition {
-            if viewModel?.isLoading.value == false {
-                viewModel?.fetchRepositories()
-            }
+        if currentOffsetY > shouldRefreshPosition && viewModel?.isLoading.value == false {
+            viewModel?.fetchRepositories()
         }
     }
 }
 
 extension RepositoriesViewController {
     struct Constants {
-        static let shouldRefresh: CGFloat = 100
+        static let offsetYEndOfList: CGFloat = 100
         static let row: CGFloat = 160
     }
 }

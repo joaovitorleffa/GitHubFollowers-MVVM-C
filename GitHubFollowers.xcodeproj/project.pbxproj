@@ -40,6 +40,10 @@
 		2BA1243827E3B42C006B39CF /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1243727E3B42C006B39CF /* Identifier.swift */; };
 		2BA1243A27E3C5A2006B39CF /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1243927E3C5A2006B39CF /* UIImageView+loadImage.swift */; };
 		2BA1243C27E3CBEE006B39CF /* CellSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1243B27E3CBEE006B39CF /* CellSize.swift */; };
+		2BADD7E827F1F7AE009A5D00 /* FollowerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BADD7E727F1F7AE009A5D00 /* FollowerViewModelTests.swift */; };
+		2BADD7EA27F1F876009A5D00 /* RepositoryCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BADD7E927F1F876009A5D00 /* RepositoryCellViewModelTests.swift */; };
+		2BADD7ED27F1FA9B009A5D00 /* EnterUserNameVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BADD7EC27F1FA9B009A5D00 /* EnterUserNameVCTests.swift */; };
+		2BADD7EF27F1FD26009A5D00 /* EnterUsernameViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BADD7EE27F1FD26009A5D00 /* EnterUsernameViewModelSpy.swift */; };
 		2BB2310127E25960001A5FF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2310027E25960001A5FF4 /* AppDelegate.swift */; };
 		2BB2310A27E25962001A5FF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB2310927E25962001A5FF4 /* Assets.xcassets */; };
 		2BB2310D27E25962001A5FF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB2310B27E25962001A5FF4 /* LaunchScreen.storyboard */; };
@@ -142,6 +146,10 @@
 		2BA1243727E3B42C006B39CF /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		2BA1243927E3C5A2006B39CF /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
 		2BA1243B27E3CBEE006B39CF /* CellSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSize.swift; sourceTree = "<group>"; };
+		2BADD7E727F1F7AE009A5D00 /* FollowerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerViewModelTests.swift; sourceTree = "<group>"; };
+		2BADD7E927F1F876009A5D00 /* RepositoryCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCellViewModelTests.swift; sourceTree = "<group>"; };
+		2BADD7EC27F1FA9B009A5D00 /* EnterUserNameVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUserNameVCTests.swift; sourceTree = "<group>"; };
+		2BADD7EE27F1FD26009A5D00 /* EnterUsernameViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUsernameViewModelSpy.swift; sourceTree = "<group>"; };
 		2BB230FD27E25960001A5FF4 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB2310027E25960001A5FF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BB2310927E25962001A5FF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -395,6 +403,27 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2BADD7E627F1F788009A5D00 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2BDB3EA427E5033200341FCC /* EnterUsernameViewModelTests.swift */,
+				2BDB3EA627E5064B00341FCC /* FollowersListViewModelTests.swift */,
+				2B75E9C127EA56FF00E3935F /* ProfileViewModelTests.swift */,
+				2B75E9C927EA619D00E3935F /* RepositoriesViewModelTests.swift */,
+				2BADD7E727F1F7AE009A5D00 /* FollowerViewModelTests.swift */,
+				2BADD7E927F1F876009A5D00 /* RepositoryCellViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2BADD7EB27F1FA7E009A5D00 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				2BADD7EC27F1FA9B009A5D00 /* EnterUserNameVCTests.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
 		2BB230F427E25960001A5FF4 = {
 			isa = PBXGroup;
 			children = (
@@ -439,13 +468,11 @@
 		2BB2311627E25962001A5FF4 /* GitHubFollowersTests */ = {
 			isa = PBXGroup;
 			children = (
+				2BB2311727E25962001A5FF4 /* GitHubFollowersTests.swift */,
 				2BDB3E9F27E5014C00341FCC /* Spies */,
 				2BDB3E9E27E5014500341FCC /* Stubs */,
-				2BB2311727E25962001A5FF4 /* GitHubFollowersTests.swift */,
-				2BDB3EA427E5033200341FCC /* EnterUsernameViewModelTests.swift */,
-				2BDB3EA627E5064B00341FCC /* FollowersListViewModelTests.swift */,
-				2B75E9C127EA56FF00E3935F /* ProfileViewModelTests.swift */,
-				2B75E9C927EA619D00E3935F /* RepositoriesViewModelTests.swift */,
+				2BADD7EB27F1FA7E009A5D00 /* VC */,
+				2BADD7E627F1F788009A5D00 /* ViewModel */,
 			);
 			path = GitHubFollowersTests;
 			sourceTree = "<group>";
@@ -681,6 +708,7 @@
 			children = (
 				2BDB3EA227E5026800341FCC /* SearchCoordinatorSpy.swift */,
 				2B75E9C327EA578C00E3935F /* ProfileCoordinatorSpy.swift */,
+				2BADD7EE27F1FD26009A5D00 /* EnterUsernameViewModelSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -1055,6 +1083,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BADD7EA27F1F876009A5D00 /* RepositoryCellViewModelTests.swift in Sources */,
 				2BDB3EA727E5064B00341FCC /* FollowersListViewModelTests.swift in Sources */,
 				2BDB3EA127E5015C00341FCC /* RequesterStub.swift in Sources */,
 				2BDB3EA327E5026800341FCC /* SearchCoordinatorSpy.swift in Sources */,
@@ -1062,7 +1091,10 @@
 				2B75E9CA27EA619D00E3935F /* RepositoriesViewModelTests.swift in Sources */,
 				2B75E9C227EA56FF00E3935F /* ProfileViewModelTests.swift in Sources */,
 				2BDB3EA527E5033200341FCC /* EnterUsernameViewModelTests.swift in Sources */,
+				2BADD7EF27F1FD26009A5D00 /* EnterUsernameViewModelSpy.swift in Sources */,
 				2B75E9C427EA578C00E3935F /* ProfileCoordinatorSpy.swift in Sources */,
+				2BADD7E827F1F7AE009A5D00 /* FollowerViewModelTests.swift in Sources */,
+				2BADD7ED27F1FA9B009A5D00 /* EnterUserNameVCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,4 +35,22 @@ class RepositoriesViewModelTests: XCTestCase {
         XCTAssertTrue(sut.isError.value)
     }
 
+    func test_fetchRepositories_loadedAll() {
+        requester = RequesterStub(success: [Repository]())
+        sut = RepositoriesViewModel(username: "joaovitorleffa", requester: requester)
+        
+        XCTAssertTrue(sut.repositories.value.isEmpty)
+        XCTAssertTrue(sut.loadedAll.value)
+    }
+    
+    func test_fetchRepositories_shouldNotCallTheApi() {
+        requester = RequesterStub(success: [Repository]())
+        sut = RepositoriesViewModel(username: "joaovitorleffa", requester: requester)
+        
+        sut.fetchRepositories()
+        
+        XCTAssertEqual(sut.currentPage, 1)
+        XCTAssertTrue(sut.loadedAll.value)
+        XCTAssertTrue(sut.repositories.value.isEmpty)
+    }
 }

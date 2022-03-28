@@ -8,7 +8,8 @@
 import Foundation
 
 protocol RepositoriesViewModelProtocol: AnyObject {
-    var username: String { get set }
+    var username: String { get }
+    var currentPage: Int { get }
     var loadedAll: Observable<Bool> { get }
     var repositories: Observable<[Repository]> { get }
     var isLoading: Observable<Bool> { get }
@@ -17,11 +18,10 @@ protocol RepositoriesViewModelProtocol: AnyObject {
 }
 
 class RepositoriesViewModel: RepositoriesViewModelProtocol {
-    private var currentPage = 1
-    
-    var username: String
     var requester: RequesterProtocol
     
+    private(set) var username: String
+    private(set) var currentPage = 1
     private(set) var repositories: Observable<[Repository]> = Observable([])
     private(set) var isError: Observable<Bool> = Observable(false)
     private(set) var isLoading: Observable<Bool> = Observable(true)

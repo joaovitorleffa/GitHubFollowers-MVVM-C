@@ -69,4 +69,23 @@ extension Repository {
                                     language: "Java",
                                     openIssuesCount: 0)
     }
+    
+    static func dummyEmptyLanguage() -> Repository {
+        return Repository(id: 201650311,
+                                    name: "2019-2",
+                                    fullName: "joaovitorleffa/2020-2",
+                                    repositoryPrivate: false,
+                                    owner: Owner(login: "joaovitorleffa",
+                                                 id: 44384402,
+                                                 avatarURL: "https://avatars.githubusercontent.com/u/44384402?v=4",
+                                                 gravatarID: ""),
+                                    htmlURL: "https://github.com/joaovitorleffa/2019-2",
+                                    repositoryDescription: "Trabalhos e Exercícios da Faculdade",
+                                    createdAt: "2019-08-10T15:45:10Z".date,
+                                    updatedAt: "2019-09-17T16:31:00Z".date,
+                                    pushedAt: "2019-09-17T16:30:59Z".date,
+                                    stargazersCount: 0,
+                                    language: "",
+                                    openIssuesCount: 0)
+    }
 }

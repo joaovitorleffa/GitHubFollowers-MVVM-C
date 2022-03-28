@@ -32,7 +32,6 @@ class GFDetails: UIStackView {
     private func configure() {
         axis = .vertical
         alignment = .fill
-        distribution = .fillEqually
         
         addArrangedSubview(company)
         addArrangedSubview(location)
@@ -48,7 +47,9 @@ class GFDetails: UIStackView {
     }
     
     private func setupConstraint(of target: GFCardDetail) {
-        target.snp.makeConstraints { $0.height.equalTo(32) }
+        target.snp.makeConstraints { make in
+            make.height.equalTo(32)
+        }
     }
     
     func setup(company: String?, location: String?, email: String?, blog: String?, twitter: String?) {

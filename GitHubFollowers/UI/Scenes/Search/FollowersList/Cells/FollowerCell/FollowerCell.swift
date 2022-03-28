@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 class FollowerCell: UICollectionViewCell, Identifier {
-    
     let avatar: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -30,6 +29,12 @@ class FollowerCell: UICollectionViewCell, Identifier {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        username.text = nil
+        avatar.image = nil
     }
     
     required init?(coder: NSCoder) {

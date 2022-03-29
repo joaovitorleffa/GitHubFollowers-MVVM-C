@@ -8,11 +8,7 @@
 import Foundation
 import UIKit
 
-protocol FavoritesCoordinatorDelegate: AnyObject {
-    func showErrorAlert()
-}
-
-class FavoritesCoordinator: Coordinator {
+class FavoritesCoordinator: NSObject, Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     
@@ -28,8 +24,40 @@ class FavoritesCoordinator: Coordinator {
     }
 }
 
-extension FavoritesCoordinator: FavoritesCoordinatorDelegate {
+extension FavoritesCoordinator: FollowersFlux {
     func showErrorAlert() {
         navigationController.presentDefaultError()
+    }
+    
+    func goToFollowers(by username: String) {
+        let vc = FollowersListViewController()
+        vc.viewModel = FollowersListViewModel(username: username, coordinator: self)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func goToProfile(by username: String) {
+        let coordinator = ProfileCoordinator(username: username, navigationController: navigationController)
+        childCoordinators.append(coordinator)
+        coordinator.start()
+    }
+}
+
+// TODO: implementar protocolo AlertFlux
+extension FavoritesCoordinator: AlertFlux {
+    func showAlert(title: String, message: String, buttonTitle: String) {
+        navigationController.presentGFAlert(title: title, message: message, buttonTitle: buttonTitle)
+    }
+}
+
+extension FavoritesCoordinator: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else { return }
+        
+        if navigationController.contains(fromViewController) { return }
+        
+        // MARK: remove ProfileCoordinator from childCoordinators when user press back button in ProfileViewController
+        if let profileViewController = fromViewController as? ProfileViewController, let coordinator = profileViewController.viewModel?.coordinator {
+            cleanDidFinish(coordinator)
+        }
     }
 }

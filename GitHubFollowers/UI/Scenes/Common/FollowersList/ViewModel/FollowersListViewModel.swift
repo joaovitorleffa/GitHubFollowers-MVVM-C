@@ -9,7 +9,6 @@ import Foundation
 
 protocol FollowersListViewModelProtocol: AnyObject {
     var username: String { get }
-    var coordinator: SearchCoordinatorDelegate? { get set }
     
     var isError: Observable<Bool> { get }
     var isLoading: Observable<Bool> { get }
@@ -19,13 +18,14 @@ protocol FollowersListViewModelProtocol: AnyObject {
     func fetchFollowers()
     func filter(by text: String)
     func addUserToFavorites()
+    func didTapUser(username: String)
 }
 
 class FollowersListViewModel: FollowersListViewModelProtocol {
     var username: String
     var requester: RequesterProtocol
     var favoriteManager: FavoriteManagerProtocol
-    weak var coordinator: SearchCoordinatorDelegate?
+    weak var coordinator: (FollowersFlux & AlertFlux)?
     
     private(set) var isError: Observable<Bool> = Observable(false)
     private(set) var isLoading: Observable<Bool> = Observable(true)
@@ -37,7 +37,7 @@ class FollowersListViewModel: FollowersListViewModelProtocol {
     private var filteredFollowers: [Follower] = []
     
     init(username: String,
-         coordinator: SearchCoordinatorDelegate,
+         coordinator: (FollowersFlux & AlertFlux),
          requester: RequesterProtocol = Requester(),
          favoriteManager: FavoriteManagerProtocol = FavoriteManager()) {
         self.username = username
@@ -92,10 +92,14 @@ class FollowersListViewModel: FollowersListViewModelProtocol {
         }
     }
     
+    func didTapUser(username: String) {
+        coordinator?.goToProfile(by: username)
+    }
+    
     private func handleAddUserToFavorites(_ user: User) {
         let favoriteToSave = FavoriteToSave(id: user.id,
                                             name: user.name ?? "",
-                                            username: user.login,
+                                            username: user.login.replacingOccurrences(of: "@", with: ""),
                                             avatarURL: user.avatarURL)
         
         favoriteManager.saveFavorite(favoriteToSave) { (result: Result<Favorite, CoreDataError>) in

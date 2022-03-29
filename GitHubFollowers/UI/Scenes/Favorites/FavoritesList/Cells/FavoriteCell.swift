@@ -49,7 +49,7 @@ class FavoriteCell: UITableViewCell, Identifier {
         
         nameLabel.snp.makeConstraints { make in
             make.leading.equalTo(avatarImageView.snp.trailing).offset(24)
-            make.trailing.equalToSuperview().inset(16)
+            make.trailing.equalToSuperview().inset(24)
             make.top.centerY.equalToSuperview()
         }
     }

@@ -13,6 +13,7 @@ protocol FavoritesListViewModelProtocol: AnyObject {
     var isError: Observable<Bool> { get }
     func fetchFavorites()
     func deleteFavorite(indexPath: IndexPath)
+    func didTapFavorite(indexPath: IndexPath)
 }
 
 class FavoritesListViewModel: FavoritesListViewModelProtocol {
@@ -20,10 +21,10 @@ class FavoritesListViewModel: FavoritesListViewModelProtocol {
     var isLoading: Observable<Bool> = Observable(true)
     var isError: Observable<Bool> = Observable(false)
     
-    weak var coordinator: FavoritesCoordinatorDelegate?
+    weak var coordinator: (FollowersFlux & AlertFlux)?
     private var favoriteManager: FavoriteManagerProtocol
     
-    init(favoriteManager: FavoriteManagerProtocol = FavoriteManager(), coordinator: FavoritesCoordinatorDelegate) {
+    init(favoriteManager: FavoriteManagerProtocol = FavoriteManager(), coordinator: (FollowersFlux & AlertFlux)) {
         self.favoriteManager = favoriteManager
         self.coordinator = coordinator
         fetchFavorites()
@@ -53,6 +54,12 @@ class FavoritesListViewModel: FavoritesListViewModelProtocol {
                 print("[deleteFavorite] \(error.localizedDescription)")
                 self.coordinator?.showErrorAlert()
             }
+        }
+    }
+    
+    func didTapFavorite(indexPath: IndexPath) {
+        if let username = favorites.value[indexPath.row].username {
+            coordinator?.goToFollowers(by: username)
         }
     }
 }

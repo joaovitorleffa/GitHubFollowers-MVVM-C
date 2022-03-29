@@ -27,7 +27,7 @@ class SearchCoordinatorSpy: Coordinator {
 }
 
 extension SearchCoordinatorSpy: SearchCoordinatorDelegate {
-    func findFollowers(by text: String) {
+    func goToFollowers(by text: String) {
         findFollowersCalledWith = text
     }
     

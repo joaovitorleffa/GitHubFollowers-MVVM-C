@@ -31,7 +31,7 @@ class FavoritesListView: UIView {
     
     private func configure() {
         errorView.isHidden = true
-        loadingView.isHidden = true
+        emptyView.isHidden = true
         backgroundColor = Colors.background()
     }
     

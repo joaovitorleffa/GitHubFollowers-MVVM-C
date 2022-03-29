@@ -18,7 +18,7 @@ class EnterUsernameViewModelTests: XCTestCase {
         coordinator = SearchCoordinatorSpy(navigationController: UINavigationController())
         sut = EnterUsernameViewModel()
         sut.findFollowers = { text in
-            self.coordinator.findFollowers(by: text)
+            self.coordinator.goToFollowers(by: text)
         }
     }
 

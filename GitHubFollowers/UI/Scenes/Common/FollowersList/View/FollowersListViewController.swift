@@ -45,25 +45,24 @@ class FollowersListViewController: BaseViewController<FollowersListView> {
     }
     
     func setupBinds() {
-        viewModel?.followers.bind(closure: { [weak self] followers in
-            guard let self = self else { return }
+        viewModel?.followers.bind(closure: { followers in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 self.followerViewModels = followers.map { item in FollowerViewModel(follower: item) {
-                    self.viewModel?.coordinator?.goToProfile(by: item.login)
+                    self.viewModel?.didTapUser(username: item.login)
                 }}
                 self.updateUI()
             }
         })
         
-        viewModel?.isLoading.bind(closure: { [weak self] isLoading in
-            DispatchQueue.main.async {
+        viewModel?.isLoading.bind(closure: { isLoading in
+            DispatchQueue.main.async { [weak self] in
                 self?.customView.showLoadingView(when: isLoading)
             }
         })
         
-        viewModel?.isError.bind(closure: { [weak self] isError in
-            DispatchQueue.main.async {
+        viewModel?.isError.bind(closure: { isError in
+            DispatchQueue.main.async { [weak self] in
                 self?.customView.showErrorView(when: isError)
             }
         })

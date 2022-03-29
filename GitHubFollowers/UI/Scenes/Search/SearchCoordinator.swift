@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol SearchCoordinatorDelegate: AnyObject {
-    func findFollowers(by text: String)
+    func goToFollowers(by text: String)
     func goToProfile(by username: String)
     func showAlert(title: String, message: String, buttonTitle: String)
 }
@@ -28,7 +28,7 @@ class SearchCoordinator: NSObject, Coordinator {
         let vc = EnterUsernameViewController()
         let viewModel = EnterUsernameViewModel()
         viewModel.findFollowers = { [weak self] text in
-            self?.findFollowers(by: text)
+            self?.goToFollowers(by: text)
         }
         vc.viewModel = viewModel
         vc.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
@@ -36,11 +36,11 @@ class SearchCoordinator: NSObject, Coordinator {
     }
 }
 
-extension SearchCoordinator: SearchCoordinatorDelegate {
-    func findFollowers(by text: String) {
-        if !text.isEmpty {
+extension SearchCoordinator: FollowersFlux {
+    func goToFollowers(by username: String) {
+        if !username.isEmpty {
             let vc = FollowersListViewController()
-            vc.viewModel = FollowersListViewModel(username: text, coordinator: self)
+            vc.viewModel = FollowersListViewModel(username: username, coordinator: self)
             navigationController.pushViewController(vc, animated: true)
             return
         }
@@ -60,6 +60,10 @@ extension SearchCoordinator: SearchCoordinatorDelegate {
         childCoordinators.append(coordinator)
         coordinator.start()
     }
+}
+
+extension SearchCoordinator: AlertFlux {
+    func showErrorAlert() {}
     
     func showAlert(title: String, message: String, buttonTitle: String) {
         navigationController.presentGFAlert(title: title, message: message, buttonTitle: buttonTitle)

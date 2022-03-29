@@ -47,3 +47,4 @@
 "Common.nice" = "Boa";
 "Common.hey" = "Hei";
 "Common.user" = "User";
+"Common.error.message" = "Ocorreu um erro ao realizar esta ação. Por favor, tente novamente.";

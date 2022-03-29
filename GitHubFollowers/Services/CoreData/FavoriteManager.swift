@@ -11,6 +11,7 @@ import CoreData
 protocol FavoriteManagerProtocol: AnyObject {
     func saveFavorite(_ favorite: FavoriteToSave, completion: (Result<Favorite, CoreDataError>) -> Void)
     func fetchFavorites(completion: (Result<[Favorite], CoreDataError>) -> Void)
+    func deleteFavorite(_ favorite: Favorite, completion: (Result<Favorite, CoreDataError>) -> Void)
 }
 
 class FavoriteManager {
@@ -57,6 +58,17 @@ extension FavoriteManager: FavoriteManagerProtocol {
         do {
             let favorites = try mainContext.fetch(fetchRequest)
             completion(.success(favorites))
+        } catch {
+            completion(.failure(.requestError))
+        }
+    }
+    
+    func deleteFavorite(_ favorite: Favorite, completion: (Result<Favorite, CoreDataError>) -> Void) {
+        mainContext.delete(favorite)
+        
+        do {
+            try mainContext.save()
+            completion(.success(favorite))
         } catch {
             completion(.failure(.requestError))
         }

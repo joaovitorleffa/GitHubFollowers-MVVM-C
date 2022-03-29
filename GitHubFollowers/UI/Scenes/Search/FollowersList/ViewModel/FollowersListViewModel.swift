@@ -101,6 +101,7 @@ class FollowersListViewModel: FollowersListViewModelProtocol {
         favoriteManager.saveFavorite(favoriteToSave) { (result: Result<Favorite, CoreDataError>) in
             switch result {
             case .success:
+                NotificationCenter.default.post(name: .updatedFavorites, object: nil)
                 DispatchQueue.main.async {
                     self.coordinator?.showAlert(title: Strings.commonSuccess(),
                                                 message: Strings.followersListViewAddToFavoritesSuccessMessage(),

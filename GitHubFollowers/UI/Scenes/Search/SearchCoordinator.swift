@@ -34,15 +34,6 @@ class SearchCoordinator: NSObject, Coordinator {
         vc.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         navigationController.pushViewController(vc, animated: false)
     }
-    
-    func cleanDidFinish(_ child: Coordinator?) {
-        for (index, coordinator) in childCoordinators.enumerated() {
-            if coordinator === child {
-                childCoordinators.remove(at: index)
-                break
-            }
-        }
-    }
 }
 
 extension SearchCoordinator: SearchCoordinatorDelegate {
@@ -71,11 +62,7 @@ extension SearchCoordinator: SearchCoordinatorDelegate {
     }
     
     func showAlert(title: String, message: String, buttonTitle: String) {
-        let vc = GFAlertVC()
-        vc.viewModel = GFAlertVM(model: Alert(title: title, message: message, buttonTitle: buttonTitle))
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .crossDissolve
-        navigationController.present(vc, animated: true)
+        navigationController.presentGFAlert(title: title, message: message, buttonTitle: buttonTitle)
     }
 }
 

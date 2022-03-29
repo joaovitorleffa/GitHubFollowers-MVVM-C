@@ -27,16 +27,18 @@ class FavoritesListViewController: BaseViewController<FavoritesListView> {
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
         customView.tableView.register(FavoriteCell.self, forCellReuseIdentifier: FavoriteCell.identifier)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(onUpdatedFavorites),
+                                               name: .updatedFavorites,
+                                               object: nil)
     }
     
     func setupBinds() {
-        viewModel?.favorites.bind { [weak self] favorites in
-            DispatchQueue.main.async {
+        viewModel?.favorites.bind { favorites in
+            DispatchQueue.main.async { [weak self] in
+                self?.favoriteViewModels = favorites.map { FavoriteViewModel(avatarURL: $0.avatarURL!, name: $0.name!) }
                 self?.customView.showEmptyView(when: favorites.isEmpty)
-                if !favorites.isEmpty {
-                    self?.favoriteViewModels = favorites.map { FavoriteViewModel(avatarURL: $0.avatarURL!, name: $0.name!) }
-                    self?.customView.tableView.reloadData()
-                }
+                self?.customView.tableView.reloadData()
             }
         }
         
@@ -48,12 +50,34 @@ class FavoritesListViewController: BaseViewController<FavoritesListView> {
             self?.customView.showErrorView(when: isError)
         }
     }
+    
+    @objc func onUpdatedFavorites() {
+        DispatchQueue.main.async { [weak self] in
+            self?.viewModel?.fetchFavorites()
+        }
+    }
 }
 
 // MARK: - Delegates
 extension FavoritesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        // TODO: navegar para tela de seguidores
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "Delete") { action, view, completion in
+            self.viewModel?.deleteFavorite(indexPath: indexPath)
+            completion(true)
+        }
+        
+        action.backgroundColor = .systemRed
+        let config = UISwipeActionsConfiguration(actions: [action])
+        return config
     }
 }
 

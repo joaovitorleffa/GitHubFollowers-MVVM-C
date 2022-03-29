@@ -7,7 +7,11 @@
 
 import Foundation
 import UIKit
- 
+
+protocol FavoritesCoordinatorDelegate: AnyObject {
+    func showErrorAlert()
+}
+
 class FavoritesCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
@@ -18,8 +22,14 @@ class FavoritesCoordinator: Coordinator {
     
     func start() {
         let vc = FavoritesListViewController()
-        vc.viewModel = FavoritesListViewModel()
+        vc.viewModel = FavoritesListViewModel(coordinator: self)
         vc.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         navigationController.pushViewController(vc, animated: false)
+    }
+}
+
+extension FavoritesCoordinator: FavoritesCoordinatorDelegate {
+    func showErrorAlert() {
+        navigationController.presentDefaultError()
     }
 }

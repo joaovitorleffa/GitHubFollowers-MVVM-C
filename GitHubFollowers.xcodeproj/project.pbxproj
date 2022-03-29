@@ -11,6 +11,8 @@
 		2B1729C927E4C0B500DD130D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1729C827E4C0B500DD130D /* ProfileViewController.swift */; };
 		2B1729CB27E4C0DC00DD130D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1729CA27E4C0DC00DD130D /* ProfileViewModel.swift */; };
 		2B1729CD27E4F3CB00DD130D /* GFErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1729CC27E4F3CB00DD130D /* GFErrorView.swift */; };
+		2B283A9527F3361D003EDC53 /* UINavigationController+presentGFAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B283A9427F3361D003EDC53 /* UINavigationController+presentGFAlert.swift */; };
+		2B283A9927F34396003EDC53 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B283A9827F34396003EDC53 /* NotificationCenter.swift */; };
 		2B4A3FFA27E8A57A00A36D5D /* GFStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4A3FF927E8A57A00A36D5D /* GFStats.swift */; };
 		2B4A3FFC27E8B2EC00A36D5D /* Int+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4A3FFB27E8B2EC00A36D5D /* Int+Format.swift */; };
 		2B4A3FFE27E8BF2100A36D5D /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4A3FFD27E8BF2100A36D5D /* Repository.swift */; };
@@ -126,6 +128,8 @@
 		2B1729C827E4C0B500DD130D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2B1729CA27E4C0DC00DD130D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		2B1729CC27E4F3CB00DD130D /* GFErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFErrorView.swift; sourceTree = "<group>"; };
+		2B283A9427F3361D003EDC53 /* UINavigationController+presentGFAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+presentGFAlert.swift"; sourceTree = "<group>"; };
+		2B283A9827F34396003EDC53 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		2B4A3FF927E8A57A00A36D5D /* GFStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFStats.swift; sourceTree = "<group>"; };
 		2B4A3FFB27E8B2EC00A36D5D /* Int+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Format.swift"; sourceTree = "<group>"; };
 		2B4A3FFD27E8BF2100A36D5D /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -416,6 +420,8 @@
 				2B51916827ECBDDA00F993E2 /* Date+format.swift */,
 				2B51916E27ECE51400F993E2 /* UIColor+hex.swift */,
 				2BA1243927E3C5A2006B39CF /* UIImageView+loadImage.swift */,
+				2B283A9427F3361D003EDC53 /* UINavigationController+presentGFAlert.swift */,
+				2B283A9827F34396003EDC53 /* NotificationCenter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1130,6 +1136,7 @@
 				2BADD80227F21E47009A5D00 /* Favorite+CoreDataClass.swift in Sources */,
 				2BB2313D27E2613D001A5FF4 /* FavoritesListViewController.swift in Sources */,
 				2BA1242827E3A1E9006B39CF /* Observable.swift in Sources */,
+				2B283A9927F34396003EDC53 /* NotificationCenter.swift in Sources */,
 				2BFA71DA27EC93DB00568BBE /* UserInterfaceStyleObserver.swift in Sources */,
 				2BB2316027E283BC001A5FF4 /* FollowersListView.swift in Sources */,
 				2BD1F9EA27E36F3F004EE9BF /* GFAlertVM.swift in Sources */,
@@ -1141,6 +1148,7 @@
 				2BD1F9E027E36AC5004EE9BF /* R.generated.swift in Sources */,
 				2B1729C927E4C0B500DD130D /* ProfileViewController.swift in Sources */,
 				2BB2314827E2653B001A5FF4 /* BaseViewController.swift in Sources */,
+				2B283A9527F3361D003EDC53 /* UINavigationController+presentGFAlert.swift in Sources */,
 				2BD1F9EE27E3734D004EE9BF /* GFButton.swift in Sources */,
 				2BB2313427E25CEB001A5FF4 /* MainTabBarController.swift in Sources */,
 				2B4A400C27E9194100A36D5D /* ProfileCoordinator.swift in Sources */,

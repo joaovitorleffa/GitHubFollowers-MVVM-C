@@ -41,9 +41,10 @@
 
 "ErrorView.followers.title" = "This user doens't have any followers 😔";
 
-"Common.success" = "Sucesso";
+"Common.success" = "Success";
 "Common.error" = "Error";
 "Common.ok" = "OK";
 "Common.nice" = "Nice";
 "Common.hey" = "Hey";
-"Common.user" = "Usuário";
+"Common.user" = "User";
+"Common.error.message" = "An error occurred while performing this action. Please try again.";

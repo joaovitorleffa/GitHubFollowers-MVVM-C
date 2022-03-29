@@ -58,8 +58,7 @@ extension FavoritesListView: ViewCode {
     
     func setupConstraints() {
         tableView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.top.centerX.centerY.equalToSuperview()
+            make.leading.top.trailing.bottom.equalToSuperview()
         }
         loadingView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)

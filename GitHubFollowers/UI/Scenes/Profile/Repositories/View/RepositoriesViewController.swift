@@ -20,33 +20,33 @@ class RepositoriesViewController: BaseViewController<RepositoriesView> {
     }
     
     func setupBinds() {
-        viewModel?.repositories.bind(closure: { [weak self] repositories in
-            DispatchQueue.main.async {
+        viewModel?.repositories.bind { repositories in
+            DispatchQueue.main.async { [weak self] in
                 self?.repositoriesViewModels = repositories.map { RepositoryCellViewModel(repository: $0) }
                 self?.customView.tableView.reloadData()
             }
-        })
+        }
         
-        viewModel?.isLoading.bind(closure: { [weak self] isLoading in
-            DispatchQueue.main.async {
+        viewModel?.isLoading.bind { isLoading in
+            DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 self.customView.showLoadingView(when: isLoading && self.repositoriesViewModels.isEmpty)
                 self.customView.tableView.tableFooterView = isLoading && !self.repositoriesViewModels.isEmpty
                     ? GFLoadingView()
                     : nil
             }
-        })
+        }
         
-        viewModel?.isError.bind(closure: { [weak self] isError in
-            DispatchQueue.main.async {
+        viewModel?.isError.bind { isError in
+            DispatchQueue.main.async { [weak self] in
                 self?.customView.showErrorView(when: isError)
                 
             }
-        })
+        }
         
-        viewModel?.loadedAll.bind(closure: { [weak self] loadedAll in
+        viewModel?.loadedAll.bind { [weak self] loadedAll in
             self?.showLoading = !loadedAll
-        })
+        }
     }
     
     func configure() {

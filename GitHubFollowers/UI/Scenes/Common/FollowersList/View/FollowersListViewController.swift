@@ -45,7 +45,7 @@ class FollowersListViewController: BaseViewController<FollowersListView> {
     }
     
     func setupBinds() {
-        viewModel?.followers.bind(closure: { followers in
+        viewModel?.followers.bind { followers in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 self.followerViewModels = followers.map { item in FollowerViewModel(follower: item) {
@@ -53,19 +53,19 @@ class FollowersListViewController: BaseViewController<FollowersListView> {
                 }}
                 self.updateUI()
             }
-        })
+        }
         
-        viewModel?.isLoading.bind(closure: { isLoading in
+        viewModel?.isLoading.bind { isLoading in
             DispatchQueue.main.async { [weak self] in
                 self?.customView.showLoadingView(when: isLoading)
             }
-        })
+        }
         
-        viewModel?.isError.bind(closure: { isError in
+        viewModel?.isError.bind { isError in
             DispatchQueue.main.async { [weak self] in
                 self?.customView.showErrorView(when: isError)
             }
-        })
+        }
     }
     
     @objc func addDidTap() {

@@ -32,11 +32,10 @@ class ProfileViewController: BaseViewController<ProfileView> {
     }
     
     func setupBinds() {
-        viewModel?.user.bind(closure: { [weak self] user in
-            guard let user = user, let self = self else { return }
-            
-            DispatchQueue.main.async {
-                self.customView.setup(ProfileViewDescriptor(username: user.login,
+        viewModel?.user.bind { user in
+            DispatchQueue.main.async { [weak self] in
+                guard let user = user else { return }
+                self?.customView.setup(ProfileViewDescriptor(username: user.login,
                                                             name: user.name,
                                                             avatarURL: user.avatarURL,
                                                             bio: user.bio,
@@ -49,18 +48,18 @@ class ProfileViewController: BaseViewController<ProfileView> {
                                                             followers: user.followers,
                                                             following: user.following))
             }
-        })
+        }
         
-        viewModel?.isLoading.bind(closure: { [weak self] isLoading in
-            DispatchQueue.main.async {
+        viewModel?.isLoading.bind { isLoading in
+            DispatchQueue.main.async { [weak self] in
                 self?.customView.showLoadingView(when: isLoading)
             }
-        })
+        }
         
-        viewModel?.isError.bind(closure: { [weak self] isError in
-            DispatchQueue.main.async {
+        viewModel?.isError.bind { isError in
+            DispatchQueue.main.async { [weak self] in
                 self?.customView.showErrorView(when: isError)
             }
-        })
+        }
     }
 }
